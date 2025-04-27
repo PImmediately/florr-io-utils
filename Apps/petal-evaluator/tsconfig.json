@@ -1,0 +1,40 @@
+{
+	"compilerOptions": {
+		/* Projects */
+		/* Language and Environment */
+		"target": "ES2021",
+		"lib": [
+			"ES2021",
+			"ES6",
+			"DOM"
+		],
+		/* Modules */
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		/* JavaScript Support */
+		/* Emit */
+		"outDir": "./dist/",
+		/* Interop Constraints */
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		/* Type Checking */
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		/* Completeness */
+		"skipLibCheck": true
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

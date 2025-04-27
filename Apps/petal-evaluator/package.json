@@ -1,0 +1,14 @@
+{
+	"name": "petal-evaluator",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"start": "ts-node --project ./tsconfig.json ./Sources/App.ts"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^22.15.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3"
+	}
+}
