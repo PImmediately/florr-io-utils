@@ -6,6 +6,8 @@ import type { Mob, Petal } from "./GameTypes";
 import PetalsEvaluator from "./PetalsEvaluator";
 import PetalsEvaluatorFireAntHellActive from "./PetalsEvaluatorFireAntHellActive";
 import GameClient from "./GameClient";
+import PetalsEvaluatorDesertDPS from "./PetalsEvaluatorDesertDPS";
+
 
 (() => {
 	const zoneDirPath = path.join(__dirname, "..", "zones");
@@ -53,6 +55,7 @@ import GameClient from "./GameClient";
 
 	const evaluators = new Set<PetalsEvaluator>();
 	evaluators.add(new PetalsEvaluatorFireAntHellActive(gameClient));
+	evaluators.add(new PetalsEvaluatorDesertDPS(gameClient));
 
 	evaluators.forEach((evaluator) => {
 		const results = evaluator.evaluate();
