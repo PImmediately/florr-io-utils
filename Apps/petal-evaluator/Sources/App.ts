@@ -3,9 +3,10 @@ import fs from "node:fs";
 
 import type { Mob, Petal } from "./GameTypes";
 
+import GameClient from "./GameClient";
+
 import PetalsEvaluator from "./PetalsEvaluator";
 import PetalsEvaluatorFireAntHellActive from "./PetalsEvaluatorFireAntHellActive";
-import GameClient from "./GameClient";
 import PetalsEvaluatorDesertDPS from "./PetalsEvaluatorDesertDPS";
 
 
