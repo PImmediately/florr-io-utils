@@ -2,7 +2,6 @@ import path from "node:path"
 import fs from "node:fs";
 
 import type { Mob, Petal } from "./GameTypes";
-import PetalEvaluator from "./PetalDPSCalculator";
 
 import PetalsEvaluator from "./PetalsEvaluator";
 import PetalsEvaluatorFireAntHellActive from "./PetalsEvaluatorFireAntHellActive";
