@@ -96,7 +96,7 @@ super cog                      : 0.9
 super monstera                 : 0.0
 super mecha_antennae           : 0.0
 super laser                    : 1.3
-super domino                   : 7.5
+super domino                   : 1.0
 super bandage                  : 0.0
 unique crown                   : 0.0
 super totem                    : 0.7

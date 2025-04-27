@@ -20,6 +20,15 @@ export interface PetalDPSCalculatorOptionsState {
 	touchedLaserEntityCount: number;
 }
 
+const petalDominoProducts = new Array<number>();
+for (let a = 0; a <= 6; a++) {
+	for (let b = 0; b <= a; b++) {
+		petalDominoProducts.push(a * b);
+	}
+}
+const petalDominoMaxBaseDamage = Math.max(...petalDominoProducts);
+const petalDominoBaseDamage = petalDominoProducts.map((p) => p / petalDominoProducts.length).reduce((sum, ele) => sum + ele);
+
 export default class PetalDPSCalculator {
 
 	public constructor(public readonly gameClient: GameClient, public readonly options: PetalDPSCalculatorOptions) {
@@ -119,12 +128,17 @@ export default class PetalDPSCalculator {
 					damage *= 35 * criticalChance + 1 * (1 - criticalChance);
 				}
 
-				// for tomato
+				// for tomato & domino
 				{
 					const damageRange = findTranslation<[number, number]>(tooltip, "Petal/Attribute/DamageRange");
 					if (Array.isArray(damageRange)) {
-						const damages = damageRange.slice(1) as [number, number];
-						damage = damages.reduce((sum, ele) => sum + ele, 0) / damages.length;
+						if (petal.sid === "tomato") {
+							const damages = damageRange.slice(1) as [number, number];
+							damage = damages.reduce((sum, ele) => sum + ele, 0) / damages.length;
+						} else if (petal.sid === "domino") {
+							const damages = damageRange.slice(1) as [number, number];
+							damage = damages[1] * petalDominoBaseDamage / petalDominoMaxBaseDamage;
+						}
 					}
 				}
 

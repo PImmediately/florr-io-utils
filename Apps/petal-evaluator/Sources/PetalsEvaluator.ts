@@ -27,7 +27,7 @@ export default class PetalsEvaluator {
 		missile: 0.25, // projectile
 		grapes: 0.25, // projectile
 		pollen: 0.25, // projectile
-		rice: 0.25, // projectile
+		rice: 0.25, // too fast
 		magnet: 0,
 		pearl: 0.25, // projectile
 		peas: 0.25, // projectile
@@ -39,6 +39,7 @@ export default class PetalsEvaluator {
 		compass: 0,
 		mecha_missile: 0.25, // projectile
 		laser: 0.2, // cannot always be touched
+		domino: 0.25, // too fast
 	};
 
 	public constructor(public readonly gameClient: GameClient) {
