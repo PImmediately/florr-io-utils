@@ -207,13 +207,19 @@ export default class PetalsEvaluator {
 			if (typeof score.ultraMagicLeafCount === "number") title += ` (with ${score.ultraMagicLeafCount} ultra magic_leaf)`;
 			return {
 				title,
+				petalSID: score.petal.sid,
 				score: score.score
 			};
 		});
 		const longestTitleLength = Math.max(...texts.map(({ title }) => title.length));
-		return texts.map(({ title, score }) => {
-			return `${title.padEnd(longestTitleLength, " ")} : ${score.toFixed(1)}`;
-		}).join("\n");
+		return texts
+			.sort(({ petalSID: a1, title: a2 }, { petalSID: b1, title: b2 }) => {
+				if (a1 !== b1) return a1 > b1 ? 1 : -1;
+				return b1 < b2 ? 1 : -1;
+			})
+			.map(({ title, score }) => {
+				return `${title.padEnd(longestTitleLength, " ")} : ${score.toFixed(1)}`;
+			}).join("\n");
 	}
 
 }
