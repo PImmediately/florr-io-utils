@@ -203,8 +203,8 @@ export default class PetalsEvaluator {
 
 		const texts = results.map((score) => {
 			let title = `${toRaritySID(score.petal.rarity)} ${score.petal.sid}`;
-			if (typeof score.cloverRarity === "number" ) title += ` (with ${toRaritySID(score.cloverRarity)} clover)`;
-			if (typeof score.ultraMagicLeafCount === "number" ) title += ` (with ${score.ultraMagicLeafCount} ultra magic_leaf)`;
+			if (typeof score.cloverRarity === "number") title += ` (with ${toRaritySID(score.cloverRarity)} clover)`;
+			if (typeof score.ultraMagicLeafCount === "number") title += ` (with ${score.ultraMagicLeafCount} ultra magic_leaf)`;
 			return {
 				title,
 				score: score.score
