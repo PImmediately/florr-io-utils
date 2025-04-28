@@ -1,128 +1,120 @@
-super air                                    : 0.0
-super amulet                                 : 0.0
-super ankh                                   : 0.0
-super ant_egg                                : 3.8
-super antennae                               : 0.0
-super bandage                                : 0.0
-super basic                                  : 0.7
-super basil                                  : 0.0
-super battery                                : 3.2
-super beetle_egg                             : 3.6
-super blood_stinger                          : 2.7
-super bone                                   : 1.9
-super bubble                                 : 0.0
-super bulb                                   : 0.0
-super bur                                    : 0.4
-super cactus                                 : 1.5
-super card                                   : 2.4
-super carrot                                 : 0.2
-super chip                                   : 2.6
-super claw                                   : 0.2
-super clover                                 : 0.7
-super cog                                    : 1.7
-super coin                                   : 1.0
-super compass                                : 0.0
-super coral                                  : 1.2
-super corn                                   : 2.7
-super corruption                             : 0.0
-super cotton                                 : 0.0
-unique crown                                 : 0.0
-super cutter                                 : 0.0
-super dahlia                                 : 0.3
-super dandelion                              : 1.7
-super dice                                   : 2.5
-super dice (with ultra clover)               : 3.2
-super dice (with super clover)               : 3.3
-super disc                                   : 0.0
-super domino                                 : 0.9
-super fangs                                  : 0.7
-super faster                                 : 0.8
-super glass                                  : 1.3
-super golden_leaf                            : 1.7
-super grapes                                 : 0.9
-super heavy                                  : 2.1
-super honey                                  : 0.0
-super iris                                   : 3.3
-super jelly                                  : 0.7
-super laser                                  : 2.6
-super leaf                                   : 2.3
-super light                                  : 3.0
-ultra lightning                              : 1.1
-super lightning                              : 3.2
-super lotus                                  : 0.0
-ultra magic_stick                            : 0.0
-ultra magic_stick (with 1 ultra magic_leaf)  : 1.1
-ultra magic_stick (with 2 ultra magic_leaf)  : 2.2
-ultra magic_stick (with 3 ultra magic_leaf)  : 3.3
-ultra magic_stick (with 4 ultra magic_leaf)  : 4.4
-ultra magic_stick (with 5 ultra magic_leaf)  : 5.5
-ultra magic_stick (with 6 ultra magic_leaf)  : 6.6
-ultra magic_stick (with 7 ultra magic_leaf)  : 7.7
-super magic_stick                            : 0.0
-super magic_stick (with 1 ultra magic_leaf)  : 5.6
-super magic_stick (with 2 ultra magic_leaf)  : 11.2
-super magic_stick (with 3 ultra magic_leaf)  : 16.9
-super magic_stick (with 4 ultra magic_leaf)  : 22.5
-super magic_stick (with 5 ultra magic_leaf)  : 28.1
-super magic_stick (with 6 ultra magic_leaf)  : 33.7
-super magic_stick (with 7 ultra magic_leaf)  : 39.4
-unique magic_stick                           : 0.0
-unique magic_stick (with 1 ultra magic_leaf) : 16.9
-unique magic_stick (with 2 ultra magic_leaf) : 33.7
-unique magic_stick (with 3 ultra magic_leaf) : 50.6
-unique magic_stick (with 4 ultra magic_leaf) : 67.5
-unique magic_stick (with 5 ultra magic_leaf) : 84.3
-unique magic_stick (with 6 ultra magic_leaf) : 101.2
-unique magic_stick (with 7 ultra magic_leaf) : 118.1
-super magnet                                 : 0.0
-super mark                                   : 0.0
-super mecha_antennae                         : 0.0
-super mecha_missile                          : 0.4
-super mimic                                  : 0.0
-super missile                                : 0.4
-unique mjolnir                               : 0.0
-super monstera                               : 0.0
-ultra moon                                   : 0.4
-super moon                                   : 2.5
-super nazar                                  : 0.0
-super orange                                 : 1.3
-super orb                                    : 0.0
-super pearl                                  : 0.6
-super peas                                   : 0.2
-super pincer                                 : 3.0
-super plank                                  : 0.0
-super pollen                                 : 0.5
-super poo                                    : 0.0
-super powder                                 : 0.0
-super privet                                 : 0.0
-super relic                                  : 0.0
-super rice                                   : 1.0
-super rock                                   : 2.9
-super root                                   : 0.0
-super rose                                   : 0.1
-super rubber                                 : 0.0
-super salt                                   : 0.7
-super sand                                   : 2.7
-super shell                                  : 0.4
-super shovel                                 : 0.0
-super soil                                   : 0.7
-super sponge                                 : 0.0
-super square                                 : 0.0
-super starfish                               : 0.5
-unique starfish                              : 4.4
-ultra stick                                  : 0.4
-super stick                                  : 3.4
-super stinger                                : 2.0
-super talisman                               : 0.7
-super third_eye                              : 0.0
-super tomato                                 : 0.8
-super totem                                  : 0.7
-super triangle                               : 0.0
-super uranium                                : 0.0
-super wax                                    : 0.0
-ultra wax                                    : 0.0
-super web                                    : 0.2
-super wing                                   : 1.3
-super yggdrasil                              : 0.0
-super yin_yang                               : 0.8
-super yucca                                  : 0.3
+super air                                   : 0.0
+super amulet                                : 0.0
+super ankh                                  : 0.0
+super ant_egg                               : 3.8
+super antennae                              : 0.0
+super bandage                               : 0.0
+super basic                                 : 0.7
+super basil                                 : 0.0
+super battery                               : 3.2
+super beetle_egg                            : 3.6
+super blood_stinger                         : 2.7
+super bone                                  : 1.9
+super bubble                                : 0.0
+super bulb                                  : 0.0
+super bur                                   : 0.4
+super cactus                                : 1.5
+super card                                  : 2.4
+super carrot                                : 0.2
+super chip                                  : 2.6
+super claw                                  : 0.2
+super clover                                : 0.7
+super cog                                   : 1.7
+super coin                                  : 1.0
+super compass                               : 0.0
+super coral                                 : 1.2
+super corn                                  : 2.7
+super corruption                            : 0.0
+super cotton                                : 0.0
+unique crown                                : 0.0
+super cutter                                : 0.0
+super dahlia                                : 0.3
+super dandelion                             : 1.7
+super dice                                  : 2.5
+super dice (with ultra clover)              : 3.2
+super dice (with super clover)              : 3.3
+super disc                                  : 0.0
+super domino                                : 0.9
+super fangs                                 : 0.7
+super faster                                : 0.8
+super glass                                 : 1.3
+super golden_leaf                           : 1.7
+super grapes                                : 0.9
+super heavy                                 : 2.1
+super honey                                 : 0.0
+super iris                                  : 3.3
+super jelly                                 : 0.7
+super laser                                 : 2.6
+super leaf                                  : 2.3
+super light                                 : 3.0
+ultra lightning                             : 1.1
+super lightning                             : 3.2
+super lotus                                 : 0.0
+ultra magic_stick                           : 0.0
+ultra magic_stick (with 1 ultra magic_leaf) : 1.1
+ultra magic_stick (with 2 ultra magic_leaf) : 2.2
+ultra magic_stick (with 3 ultra magic_leaf) : 3.3
+ultra magic_stick (with 4 ultra magic_leaf) : 4.4
+ultra magic_stick (with 5 ultra magic_leaf) : 5.5
+ultra magic_stick (with 6 ultra magic_leaf) : 6.6
+ultra magic_stick (with 7 ultra magic_leaf) : 7.7
+super magic_stick                           : 0.0
+super magic_stick (with 1 ultra magic_leaf) : 5.6
+super magic_stick (with 2 ultra magic_leaf) : 11.2
+super magic_stick (with 3 ultra magic_leaf) : 16.9
+super magic_stick (with 4 ultra magic_leaf) : 22.5
+super magic_stick (with 5 ultra magic_leaf) : 28.1
+super magic_stick (with 6 ultra magic_leaf) : 33.7
+super magic_stick (with 7 ultra magic_leaf) : 39.4
+super magnet                                : 0.0
+super mark                                  : 0.0
+super mecha_antennae                        : 0.0
+super mecha_missile                         : 0.4
+super mimic                                 : 0.0
+super missile                               : 0.4
+unique mjolnir                              : 0.0
+super monstera                              : 0.0
+ultra moon                                  : 0.4
+super moon                                  : 2.5
+super nazar                                 : 0.0
+super orange                                : 1.3
+super orb                                   : 0.0
+super pearl                                 : 0.6
+super peas                                  : 0.2
+super pincer                                : 3.0
+super plank                                 : 0.0
+super pollen                                : 0.5
+super poo                                   : 0.0
+super powder                                : 0.0
+super privet                                : 0.0
+super relic                                 : 0.0
+super rice                                  : 1.0
+super rock                                  : 2.9
+super root                                  : 0.0
+super rose                                  : 0.1
+super rubber                                : 0.0
+super salt                                  : 0.7
+super sand                                  : 2.7
+super shell                                 : 0.4
+super shovel                                : 0.0
+super soil                                  : 0.7
+super sponge                                : 0.0
+super square                                : 0.0
+super starfish                              : 0.5
+unique starfish                             : 4.4
+ultra stick                                 : 0.4
+super stick                                 : 3.4
+super stinger                               : 2.0
+super talisman                              : 0.7
+super third_eye                             : 0.0
+super tomato                                : 0.8
+super totem                                 : 0.7
+super triangle                              : 0.0
+super uranium                               : 0.0
+super wax                                   : 0.0
+ultra wax                                   : 0.0
+super web                                   : 0.2
+super wing                                  : 1.3
+super yggdrasil                             : 0.0
+super yin_yang                              : 0.8
+super yucca                                 : 0.3

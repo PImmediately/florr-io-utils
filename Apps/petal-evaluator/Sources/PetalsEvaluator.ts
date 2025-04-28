@@ -169,7 +169,7 @@ export default class PetalsEvaluator {
 			}
 			if (
 				(toRaritySID(result.petal.rarity) === "unique") &&
-				(["starfish"/*xayo*/, "magic_stick"].includes(result.petal.sid))
+				(["starfish"/*xayo*/].includes(result.petal.sid))
 			) {
 				return true;
 			}
