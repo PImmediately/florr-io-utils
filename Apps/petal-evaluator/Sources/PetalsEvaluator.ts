@@ -174,7 +174,7 @@ export default class PetalsEvaluator {
 				return true;
 			}
 
-			// utlra
+			// ultra
 			if (
 				(toRaritySID(result.petal.rarity) === "ultra") &&
 				(["lightning", "stick", "moon", "wax", "magic_stick"].includes(result.petal.sid))
