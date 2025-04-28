@@ -12,6 +12,7 @@ export interface PetalEvaluation {
 	score: number;
 	actualScore: number;
 	cloverRarity: number | undefined;
+	ultraMagicLeafCount: number | undefined;
 }
 
 export default class PetalsEvaluator {
@@ -56,7 +57,8 @@ export default class PetalsEvaluator {
 				petal: dps.petal,
 				score: actualScore * ((typeof this.scoreFactor[dps.petal.sid] === "number") ? this.scoreFactor[dps.petal.sid]! : 1),
 				actualScore: actualScore,
-				cloverRarity: dps.cloverRarity
+				cloverRarity: dps.cloverRarity,
+				ultraMagicLeafCount: dps.ultraMagicLeafCount,
 			};
 		});
 	}
@@ -72,6 +74,7 @@ export default class PetalsEvaluator {
 			};
 			dps: number;
 			cloverRarity?: number;
+			ultraMagicLeafCount?: number;
 		}>();
 
 		const dpsStateBaseOptions: PetalDPSCalculatorOptionsState = {
@@ -80,12 +83,14 @@ export default class PetalsEvaluator {
 			flowerTalentSummonerMultiplier: this.dpsCalculatorManifest.flowerTalentSummonerMultiplier,
 			flowerTalentPoisonMultiplier: this.dpsCalculatorManifest.flowerTalentSummonerMultiplier,
 			flowerLuck: this.dpsCalculatorManifest.flowerBaseLuck,
+			flowerManaPerSecond: this.dpsCalculatorManifest.flowerManaPerSecond,
 
 			maxLigntningBounces: this.dpsCalculatorManifest.maxLigntningBounces,
 			touchedLaserEntityCount: this.dpsCalculatorManifest.touchedLaserEntityCount
 		};
 
 		const petalClover = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "clover")!;
+		const petalMagicLeaf = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "magic_leaf")!;
 		this.gameClient.florrio.utils.getPetals().forEach((petal) => {
 			petal.rarities.forEach((_, rarity) => {
 				dpss.push({
@@ -123,6 +128,30 @@ export default class PetalsEvaluator {
 							cloverRarity
 						});
 					});
+				} else if (petal.sid === "magic_stick") {
+					const _ = petalMagicLeaf.rarities[toRarityIndex("ultra")]!;
+					const manaPerSecond = (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
+
+					for (let n = 1; n <= 7; n++) {
+						const flowerManaPerSecond = manaPerSecond * n;
+						dpss.push({
+							petal: {
+								sid: petal.sid,
+								rarity
+							},
+							dps: new PetalDPSCalculator(this.gameClient, {
+								petal,
+								petalRarity: rarity,
+								mob,
+								mobRarity: this.dpsCalculatorManifest.targetMOBRarity!,
+								state: {
+									...dpsStateBaseOptions,
+									flowerManaPerSecond
+								}
+							}).calc(),
+							ultraMagicLeafCount: n
+						});
+					}
 				}
 			});
 		});
@@ -132,7 +161,7 @@ export default class PetalsEvaluator {
 	public evaluationsToText(results: PetalEvaluation[]) {
 		results = results.filter((result) => {
 			const petal = this.gameClient.florrio.utils.getPetals().find((petal) => (petal.sid === result.petal.sid))!;
-			if (petal.magicPetal) return false;
+			if ((petal.magicPetal) && (!["magic_stick"].includes(petal.sid))) return false;
 
 			// unique
 			if (["mjolnir", "crown"].includes(result.petal.sid)) {
@@ -140,7 +169,7 @@ export default class PetalsEvaluator {
 			}
 			if (
 				(toRaritySID(result.petal.rarity) === "unique") &&
-				(["starfish"/*xayo*/].includes(result.petal.sid))
+				(["starfish"/*xayo*/, "magic_stick"].includes(result.petal.sid))
 			) {
 				return true;
 			}
@@ -148,7 +177,7 @@ export default class PetalsEvaluator {
 			// utlra
 			if (
 				(toRaritySID(result.petal.rarity) === "ultra") &&
-				(["lightning", "moon", "wax"].includes(result.petal.sid))
+				(["lightning", "stick", "moon", "wax", "magic_stick"].includes(result.petal.sid))
 			) {
 				return true;
 			}
@@ -173,8 +202,11 @@ export default class PetalsEvaluator {
 		});
 
 		const texts = results.map((score) => {
+			let title = `${toRaritySID(score.petal.rarity)} ${score.petal.sid}`;
+			if (typeof score.cloverRarity === "number" ) title += ` (with ${toRaritySID(score.cloverRarity)} clover)`;
+			if (typeof score.ultraMagicLeafCount === "number" ) title += ` (with ${score.ultraMagicLeafCount} ultra magic_leaf)`;
 			return {
-				title: `${toRaritySID(score.petal.rarity)} ${score.petal.sid}${(typeof score.cloverRarity === "number" ? ` (with ${toRaritySID(score.cloverRarity)} clover)` : "")}`,
+				title,
 				score: score.score
 			};
 		});

@@ -15,6 +15,7 @@ export interface PetalDPSCalculatorOptionsState {
 	flowerTalentSummonerMultiplier: number;
 	flowerLuck: number;
 	flowerTalentPoisonMultiplier: number;
+	flowerManaPerSecond: number;
 
 	maxLigntningBounces: number;
 	touchedLaserEntityCount: number;
@@ -28,6 +29,8 @@ for (let a = 0; a <= 6; a++) {
 }
 const petalDominoMaxBaseDamage = Math.max(...petalDominoProducts);
 const petalDominoBaseDamage = petalDominoProducts.map((p) => p / petalDominoProducts.length).reduce((sum, ele) => sum + ele);
+
+const TPS = 25;
 
 export default class PetalDPSCalculator {
 
@@ -61,6 +64,9 @@ export default class PetalDPSCalculator {
 				hitCount *= 1 / (1 - petalInfo.evasionChance);
 			}
 		}
+		if (typeof petalInfo.duration === "number") {
+			hitCount = Math.min(hitCount, TPS * petalInfo.duration);
+		}
 
 		let totalDamage = petalInfo.damage;
 		{
@@ -77,7 +83,8 @@ export default class PetalDPSCalculator {
 
 		let dps = 0;
 		if (typeof petalInfo.reloadTime === "number") {
-			dps = (totalDamage * hitCount) / (petalInfo.reloadTime * this.options.state.flowerTalentReloadMultiplier / 1000);
+			const time = petalInfo.reloadTime * this.options.state.flowerTalentReloadMultiplier + ((typeof petalInfo.activationTime === "number") ? petalInfo.activationTime : 0) + 1000 / TPS * hitCount;
+			dps = (totalDamage * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
 			dps += petalInfo.lightningDPS;
 			dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
 		}
@@ -97,6 +104,7 @@ export default class PetalDPSCalculator {
 		const petal = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === options.petal.sid);
 		if (!petal) throw new Error(`Petal with SID ${options.petal.sid} not found`);
 
+		let duration: number | undefined;
 		let health = 0;
 		let damage = 0;
 		let damageDPS: number | undefined;
@@ -105,7 +113,9 @@ export default class PetalDPSCalculator {
 		let poisonDPS = 0;
 		let armor = 0;
 		let reloadTime: number | undefined;
+		let activationTime: number | undefined;
 		let numCopies = 1;
+		let spawnCount: number | undefined;
 		let evasionChance = 0;
 
 		const tooltip = petal.rarities[options.petal.rarity]?.tooltip;
@@ -192,19 +202,38 @@ export default class PetalDPSCalculator {
 			// for summoner
 			const contents = (findTranslation<[number, MobType]>(tooltip, "Petal/Attribute/Contents") || [])[2];
 			if (contents) {
-				const content = this.gameClient.florrio.utils.getMobs().find(m => m.sid === contents[1]);
-				if (!content) throw new Error(`Mob with SID ${contents[2]} not found`);
+				const contentMOB = this.gameClient.florrio.utils.getMobs().find(m => m.sid === contents[1]);
+				if (!contentMOB) throw new Error(`Mob with SID ${contents[2]} not found`);
 
-				const contentTooltip = content.rarities[toRarityIndex(contents[2])]?.tooltip
-				if (!contentTooltip) throw new Error(`Mob with SID ${contents[2]} not found`);
-				health = ((findTranslation<[number]>(contentTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
-				damage = (findTranslation<[number]>(contentTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
-				armor = (findTranslation<[number]>(contentTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+				const contentMOBTooltip = contentMOB.rarities[toRarityIndex(contents[2])]?.tooltip
+				if (!contentMOBTooltip) throw new Error(`Mob with SID ${contents[2]} not found`);
+				health = ((findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
+				damage = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
+				armor = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+			}
+
+			const spawn = (findTranslation<[number, MobType]>(tooltip, "Petal/Attribute/Spawn") || [])[2];
+			if (spawn) {
+				const spawnMOB = this.gameClient.florrio.utils.getMobs().find(m => m.sid === spawn[1]);
+				if (!spawnMOB) throw new Error(`Mob with SID ${spawn[2]} not found`);
+
+				const spawnMOBTooltip = spawnMOB.rarities[toRarityIndex(spawn[2])]?.tooltip
+				if (!spawnMOBTooltip) throw new Error(`Mob with SID ${spawn[2]} not found`);
+				health = ((findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
+				damage = (findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
+				armor = (findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+
+				const spawnManaCost = (findTranslation<[number]>(tooltip, "Petal/Attribute/SpawnManaCost") || [])[1];
+				duration = (findTranslation<[number]>(tooltip, "Petal/Attribute/Duration") || [])[1];
+				if ((typeof spawnManaCost === "number") && (typeof duration === "number")) {
+					spawnCount = Math.min((duration * this.options.state.flowerManaPerSecond / spawnManaCost), duration);
+				}
 			}
 
 			for (let i = 0; i <= options.petal.rarity; i++) {
 				const rarity = petal.rarities[i]!;
 				if (typeof rarity.reloadTime === "number") reloadTime = rarity.reloadTime;
+				if (typeof rarity.activationTime === "number") activationTime = rarity.activationTime;
 				if (typeof rarity.numCopies === "number") numCopies = rarity.numCopies;
 			}
 			if ((this.options.state.flowerTalentDuplicator) && (numCopies >= 2)) numCopies++;
@@ -214,6 +243,7 @@ export default class PetalDPSCalculator {
 		}
 
 		return {
+			duration,
 			health,
 			damage,
 			damageDPS,
@@ -223,7 +253,9 @@ export default class PetalDPSCalculator {
 			poisonDPS,
 			evasionChance,
 			reloadTime,
-			numCopies
+			activationTime,
+			numCopies,
+			spawnCount
 		};
 	}
 
