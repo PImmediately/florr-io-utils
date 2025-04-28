@@ -6,6 +6,7 @@ import type { Mob, Petal } from "./GameTypes";
 import GameClient from "./GameClient";
 
 import PetalsEvaluator from "./PetalsEvaluator";
+import PetalsEvaluatorNormalAntHellActive from "./PetalsEvaluatorNormalAntHellActive";
 import PetalsEvaluatorFireAntHellActive from "./PetalsEvaluatorFireAntHellActive";
 import PetalsEvaluatorDesertDPS from "./PetalsEvaluatorDesertDPS";
 
@@ -55,6 +56,7 @@ import PetalsEvaluatorDesertDPS from "./PetalsEvaluatorDesertDPS";
 	if (!gameClient) return;
 
 	const evaluators = new Set<PetalsEvaluator>();
+	evaluators.add(new PetalsEvaluatorNormalAntHellActive(gameClient));
 	evaluators.add(new PetalsEvaluatorFireAntHellActive(gameClient));
 	evaluators.add(new PetalsEvaluatorDesertDPS(gameClient));
 
