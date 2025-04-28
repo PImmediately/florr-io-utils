@@ -3,16 +3,16 @@ import type GameClient from "./GameClient";
 
 import { toRarityIndex } from "./GameTypes";
 
-export default class PetalsEvaluatorNormalAntHellActive extends PetalsEvaluator {
+export default class PetalsEvaluatorDesert extends PetalsEvaluator {
 
-	override name = "normal_ant_hell_active";
+	override name = "desert_dps";
 
 	public constructor(gameClient: GameClient) {
 		super(gameClient);
 
-		this.dpsCalculatorManifest.targetMOBSID = "ant_soldier";
+		this.dpsCalculatorManifest.targetMOBSID = "beetle";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
-		this.dpsCalculatorManifest.maxLigntningBounces = 6;
+		this.dpsCalculatorManifest.maxLigntningBounces = 4;
 	}
 
 }
