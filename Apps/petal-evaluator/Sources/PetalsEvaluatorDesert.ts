@@ -5,7 +5,7 @@ import { toRarityIndex } from "./GameTypes";
 
 export default class PetalsEvaluatorDesert extends PetalsEvaluator {
 
-	override name = "desert_dps";
+	override name = "desert";
 
 	public constructor(gameClient: GameClient) {
 		super(gameClient);
