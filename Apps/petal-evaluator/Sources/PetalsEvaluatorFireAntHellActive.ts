@@ -3,7 +3,7 @@ import type GameClient from "./GameClient";
 
 import { toRarityIndex } from "./GameTypes";
 
-export default class PetalEvaluatorManifestFireAntHellActive extends PetalsEvaluator {
+export default class PetalsEvaluatorFireAntHellActive extends PetalsEvaluator {
 
 	override name = "fire_ant_hell_active";
 
