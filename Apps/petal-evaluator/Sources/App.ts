@@ -10,7 +10,6 @@ import PetalsEvaluatorNormalAntHell from "./PetalsEvaluatorNormalAntHell";
 import PetalsEvaluatorFireAntHell from "./PetalsEvaluatorFireAntHell";
 import PetalsEvaluatorDesert from "./PetalsEvaluatorDesert";
 
-
 (() => {
 	const zoneDirPath = path.join(__dirname, "..", "zones");
 	if (!fs.existsSync(zoneDirPath)) {
