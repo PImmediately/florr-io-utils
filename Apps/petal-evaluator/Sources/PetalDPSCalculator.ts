@@ -1,5 +1,5 @@
 import type GameClient from "./GameClient";
-import { findTranslation, toRarityIndex, type MobType, type Petal } from "./GameTypes";
+import { findTranslation, toRarityIndex, getRarity, type MobType, type Petal } from "./GameTypes";
 
 export interface PetalDPSCalculatorOptions {
 	petal: Petal;
@@ -52,7 +52,8 @@ export default class PetalDPSCalculator {
 		const targetDamage = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
 		const targetArmor = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
 
-		let hitCount = Math.ceil(petalInfo.health / (targetDamage + targetArmor - petalInfo.armor));
+		const damageToPetal = targetDamage + targetArmor - petalInfo.armor;
+		let hitCount = (damageToPetal > 0) ? Math.ceil(petalInfo.health / damageToPetal) : Infinity;
 		{
 			// lightning
 			if (petalInfo.isDamageLightning) {
@@ -62,6 +63,11 @@ export default class PetalDPSCalculator {
 			// evasion
 			if (petalInfo.evasionChance > 0) {
 				hitCount *= 1 / (1 - petalInfo.evasionChance);
+			}
+
+			// undead
+			if (typeof petalInfo.undeadDuration === "number") {
+				hitCount += TPS * petalInfo.undeadDuration;
 			}
 		}
 		if (typeof petalInfo.duration === "number") {
@@ -82,8 +88,11 @@ export default class PetalDPSCalculator {
 		}
 
 		let dps = 0;
-		if (typeof petalInfo.reloadTime === "number") {
-			const time = petalInfo.reloadTime * this.options.state.flowerTalentReloadMultiplier + ((typeof petalInfo.activationTime === "number") ? petalInfo.activationTime : 0) + 1000 / TPS * hitCount;
+		if (
+			(typeof petalInfo.reloadTime === "number") ||
+			(typeof petalInfo.activationTime === "number")
+		) {
+			const time = (petalInfo.reloadTime || 0) * this.options.state.flowerTalentReloadMultiplier + (petalInfo.activationTime || 0) + 1000 / TPS * hitCount;
 			dps = (totalDamage * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
 			dps += petalInfo.lightningDPS;
 			dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
@@ -117,20 +126,21 @@ export default class PetalDPSCalculator {
 		let numCopies = 1;
 		let spawnCount: number | undefined;
 		let evasionChance = 0;
+		let undeadDuration: number | undefined;
 
-		const tooltip = petal.rarities[options.petal.rarity]?.tooltip;
-		if (tooltip) {
-			health = (findTranslation<[number]>(tooltip, "Petal/Attribute/Health") || [])[1] || 0;
+		const rarity = getRarity(petal.rarities, options.petal.rarity);
+		if (rarity.tooltip) {
+			health = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Health") || [])[1] || 0;
 			{
 				// for card
-				const health4 = findTranslation<[number, number, number, number]>(tooltip, "Petal/Attribute/Health4");
+				const health4 = findTranslation<[number, number, number, number]>(rarity.tooltip, "Petal/Attribute/Health4");
 				if (Array.isArray(health4)) {
 					const healths = health4.slice(1) as [number, number, number, number];
 					health = healths.reduce((sum, ele) => sum + ele, 0) / healths.length;
 				}
 			}
 
-			damage = (findTranslation<[number]>(tooltip, "Petal/Attribute/Damage") || [])[1] || 0;
+			damage = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Damage") || [])[1] || 0;
 			{
 				// for dice
 				if (petal.sid === "dice") {
@@ -140,7 +150,7 @@ export default class PetalDPSCalculator {
 
 				// for tomato & domino
 				{
-					const damageRange = findTranslation<[number, number]>(tooltip, "Petal/Attribute/DamageRange");
+					const damageRange = findTranslation<[number, number]>(rarity.tooltip, "Petal/Attribute/DamageRange");
 					if (Array.isArray(damageRange)) {
 						if (petal.sid === "tomato") {
 							const damages = damageRange.slice(1) as [number, number];
@@ -154,7 +164,7 @@ export default class PetalDPSCalculator {
 
 				// for card
 				{
-					const damage4 = findTranslation<[number, number, number, number]>(tooltip, "Petal/Attribute/Damage4");
+					const damage4 = findTranslation<[number, number, number, number]>(rarity.tooltip, "Petal/Attribute/Damage4");
 					if (Array.isArray(damage4)) {
 						const damages = damage4.slice(1) as [number, number, number, number];
 						damage = damages.reduce((sum, ele) => sum + ele, 0) / damages.length;
@@ -163,7 +173,7 @@ export default class PetalDPSCalculator {
 
 				// for glass
 				{
-					const interval = findTranslation<[number]>(tooltip, "Petal/Attribute/Interval");
+					const interval = findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Interval");
 					if (Array.isArray(interval)) {
 						damageDPS = damage / interval[1];
 					}
@@ -171,19 +181,19 @@ export default class PetalDPSCalculator {
 
 				// lightning
 				{
-					const lightning = (findTranslation<[number]>(tooltip, "Petal/Attribute/Lightning") || [])[1];
+					const lightning = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Lightning") || [])[1];
 					isDamageLightning = (typeof lightning === "number");
 					if (lightning) {
 						damage = lightning;
 					}
 
-					const bounces = (findTranslation<[number]>(tooltip, "Petal/Attribute/Bounces") || [])[1];
+					const bounces = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Bounces") || [])[1];
 					if (typeof bounces === "number") {
 						damage *= Math.min(bounces, this.options.state.maxLigntningBounces);
 					}
 
 					// for laser
-					lightningDPS = (findTranslation<[number]>(tooltip, "Petal/Attribute/DamagePerSecond/Lightning") || [])[1] || 0;
+					lightningDPS = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/DamagePerSecond/Lightning") || [])[1] || 0;
 					if (petal.sid === "laser") {
 						lightningDPS *= this.options.state.touchedLaserEntityCount;
 					}
@@ -191,55 +201,58 @@ export default class PetalDPSCalculator {
 			}
 
 			// poison
-			const poison = findTranslation<[number, number]>(tooltip, "Petal/Attribute/Poison");
+			const poison = findTranslation<[number, number]>(rarity.tooltip, "Petal/Attribute/Poison");
 			if (Array.isArray(poison)) {
 				poisonDPS = poison[2] || 0;
 			}
 
 			// armor
-			armor = (findTranslation<[number]>(tooltip, "Petal/Attribute/Armor") || [])[1] || 0;
+			armor = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Armor") || [])[1] || 0;
 
 			// for summoner
-			const contents = (findTranslation<[number, MobType]>(tooltip, "Petal/Attribute/Contents") || [])[2];
+			const contents = (findTranslation<[number, MobType]>(rarity.tooltip, "Petal/Attribute/Contents") || [])[2];
 			if (contents) {
 				const contentMOB = this.gameClient.florrio.utils.getMobs().find(m => m.sid === contents[1]);
 				if (!contentMOB) throw new Error(`Mob with SID ${contents[2]} not found`);
 
-				const contentMOBTooltip = contentMOB.rarities[toRarityIndex(contents[2])]?.tooltip
+				const contentMOBTooltip = getRarity(contentMOB.rarities, toRarityIndex(contents[2]))?.tooltip;
 				if (!contentMOBTooltip) throw new Error(`Mob with SID ${contents[2]} not found`);
 				health = ((findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
 				damage = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
 				armor = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
 			}
 
-			const spawn = (findTranslation<[number, MobType]>(tooltip, "Petal/Attribute/Spawn") || [])[2];
+			const spawn = (findTranslation<[number, MobType]>(rarity.tooltip, "Petal/Attribute/Spawn") || [])[2];
 			if (spawn) {
 				const spawnMOB = this.gameClient.florrio.utils.getMobs().find(m => m.sid === spawn[1]);
 				if (!spawnMOB) throw new Error(`Mob with SID ${spawn[2]} not found`);
 
-				const spawnMOBTooltip = spawnMOB.rarities[toRarityIndex(spawn[2])]?.tooltip
+				const spawnMOBTooltip = getRarity(spawnMOB.rarities, toRarityIndex(spawn[2]))?.tooltip;
 				if (!spawnMOBTooltip) throw new Error(`Mob with SID ${spawn[2]} not found`);
 				health = ((findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
 				damage = (findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
 				armor = (findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+				undeadDuration = (findTranslation<[number]>(spawnMOBTooltip, "Mob/Attribute/UndeadDuration") || [])[1];
 
-				const spawnManaCost = (findTranslation<[number]>(tooltip, "Petal/Attribute/SpawnManaCost") || [])[1];
-				duration = (findTranslation<[number]>(tooltip, "Petal/Attribute/Duration") || [])[1];
+				const spawnManaCost = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/SpawnManaCost") || [])[1];
+				duration = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Duration") || [])[1];
 				if ((typeof spawnManaCost === "number") && (typeof duration === "number")) {
 					spawnCount = Math.min((duration * this.options.state.flowerManaPerSecond / spawnManaCost), duration);
 				}
 			}
 
-			for (let i = 0; i <= options.petal.rarity; i++) {
-				const rarity = petal.rarities[i]!;
-				if (typeof rarity.reloadTime === "number") reloadTime = rarity.reloadTime;
-				if (typeof rarity.activationTime === "number") activationTime = rarity.activationTime;
-				if (typeof rarity.numCopies === "number") numCopies = rarity.numCopies;
-			}
+			if (typeof rarity.reloadTime === "number") reloadTime = rarity.reloadTime;
+			if (typeof rarity.activationTime === "number") activationTime = rarity.activationTime;
+			if (typeof rarity.numCopies === "number") numCopies = rarity.numCopies;
 			if ((this.options.state.flowerTalentDuplicator) && (numCopies >= 2)) numCopies++;
 
+			// crown
+			if (petal.sid === "crown") {
+				spawnCount = (undeadDuration || 0) / (((reloadTime || 0) + (activationTime || 0)) / 1000);
+			}
+
 			// evasion
-			evasionChance = (findTranslation<[number]>(tooltip, "Petal/Attribute/Evasion") || [])[1] || 0
+			evasionChance = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Evasion") || [])[1] || 0
 		}
 
 		return {
@@ -255,7 +268,8 @@ export default class PetalDPSCalculator {
 			reloadTime,
 			activationTime,
 			numCopies,
-			spawnCount
+			spawnCount,
+			undeadDuration
 		};
 	}
 

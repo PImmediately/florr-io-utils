@@ -77,3 +77,12 @@ export interface Talent {
 export function findTranslation<T extends TranslationArgument[]>(tooltip: Tooltip, name: string) {
 	return tooltip.find((translation) => translation[0] === name) as Translation<T> | undefined;
 }
+
+export function getRarity<T>(values: Array<Partial<T>>, index: number) {
+	let result: Partial<T> = {};
+	for (let i = 0; i <= index; i++) {
+		const value = values[i]!;
+		result = { ...result, ...value };
+	}
+	return result;
+}

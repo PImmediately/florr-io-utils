@@ -26,7 +26,7 @@ super coral                                 : 0.6
 super corn                                  : 1.9
 super corruption                            : 0.0
 super cotton                                : 0.0
-unique crown                                : 0.0
+unique crown                                : 19.0
 super cutter                                : 0.0
 super dahlia                                : 0.1
 super dandelion                             : 0.9
