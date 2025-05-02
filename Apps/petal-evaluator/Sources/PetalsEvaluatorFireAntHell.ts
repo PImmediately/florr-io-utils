@@ -14,9 +14,9 @@ export default class PetalsEvaluatorFireAntHell extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 6;
 
-		this.scoreFactor["web"] = 10;
-		this.scoreFactor["jelly"] = 6;
-		this.scoreFactor["moon"] = 7.5;
+		this.scoreMultiplier["web"] = 10;
+		this.scoreMultiplier["jelly"] = 6;
+		this.scoreMultiplier["moon"] = 7.5;
 	}
 
 }

@@ -24,7 +24,6 @@ export default class PetalsEvaluator {
 	public basePetalSID = "coin";
 	public basePetalRarity = toRarityIndex("super");
 
-	public scoreFactor: Record<string, number> = {
 		missile: 0.25, // projectile
 		grapes: 0.25, // projectile
 		pollen: 0.25, // projectile
@@ -55,7 +54,7 @@ export default class PetalsEvaluator {
 			const actualScore = dps.dps / baseDPS.dps;
 			return {
 				petal: dps.petal,
-				score: actualScore * ((typeof this.scoreFactor[dps.petal.sid] === "number") ? this.scoreFactor[dps.petal.sid]! : 1),
+				score: actualScore * ((typeof this.scoreMultiplier[dps.petal.sid] === "number") ? this.scoreMultiplier[dps.petal.sid]! : 1),
 				actualScore: actualScore,
 				cloverRarity: dps.cloverRarity,
 				ultraMagicLeafCount: dps.ultraMagicLeafCount,
