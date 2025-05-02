@@ -24,22 +24,23 @@ export default class PetalsEvaluator {
 	public basePetalSID = "coin";
 	public basePetalRarity = toRarityIndex("super");
 
-		missile: 0.25, // projectile
-		grapes: 0.25, // projectile
-		pollen: 0.25, // projectile
-		rice: 0.25, // too fast
-		magnet: 0,
-		pearl: 0.25, // projectile
-		peas: 0.25, // projectile
-		poo: 0,
-		bulb: 0,
-		carrot: 0.25, // projectile
-		plank: 0,
-		rubber: 0,
-		compass: 0,
-		mecha_missile: 0.25, // projectile
-		laser: 0.2, // cannot always be touched
-		domino: 0.25, // too fast
+	public scoreMultiplier: Record<string, number> = {
+		"missile": 0.25, // projectile
+		"grapes": 0.25, // projectile
+		"pollen": 0.25, // projectile
+		"rice": 0.25, // too fast
+		"magnet": 0,
+		"pearl": 0.25, // projectile
+		"peas": 0.25, // projectile
+		"poo": 0,
+		"bulb": 0,
+		"carrot": 0.25, // projectile
+		"plank": 0,
+		"rubber": 0,
+		"compass": 0,
+		"mecha_missile": 0.25, // projectile
+		"laser": 0.2, // cannot always be touched
+		"domino": 0.25, // too fast
 	};
 
 	public constructor(public readonly gameClient: GameClient) {
