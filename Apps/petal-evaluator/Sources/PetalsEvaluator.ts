@@ -9,6 +9,7 @@ export interface PetalEvaluation {
 		sid: string;
 		rarity: number;
 	};
+	dps: number;
 	score: number;
 	actualScore: number;
 	cloverRarity: number | undefined;
@@ -55,6 +56,7 @@ export default class PetalsEvaluator {
 			const actualScore = dps.dps / baseDPS.dps;
 			return {
 				petal: dps.petal,
+				dps: dps.dps,
 				score: actualScore * ((typeof this.scoreMultiplier[dps.petal.sid] === "number") ? this.scoreMultiplier[dps.petal.sid]! : 1),
 				actualScore: actualScore,
 				cloverRarity: dps.cloverRarity,
@@ -208,7 +210,8 @@ export default class PetalsEvaluator {
 			return {
 				title,
 				petalSID: score.petal.sid,
-				score: score.score
+				score: score.score,
+				dps: score.dps,
 			};
 		});
 		const longestTitleLength = Math.max(...texts.map(({ title }) => title.length));
@@ -217,8 +220,8 @@ export default class PetalsEvaluator {
 				if (a1 !== b1) return a1 > b1 ? 1 : -1;
 				return b1 < b2 ? 1 : -1;
 			})
-			.map(({ title, score }) => {
-				return `${title.padEnd(longestTitleLength, " ")} : ${score.toFixed(1)}`;
+			.map(({ title, score, dps }) => {
+				return `${title.padEnd(longestTitleLength, " ")} : ${score.toFixed(1).padStart(4, " ")}   (${Math.round(dps)})`;
 			}).join("\n");
 	}
 
