@@ -13,6 +13,8 @@ export interface PetalDPSCalculatorOptionsState {
 	flowerTalentDuplicator: boolean;
 	flowerTalentReloadMultiplier: number;
 	flowerTalentSummonerMultiplier: number;
+
+	flowerPetalRotation: number;
 	flowerLuck: number;
 	flowerTalentPoisonMultiplier: number;
 	flowerManaPerSecond: number;
@@ -31,6 +33,9 @@ const petalDominoMaxBaseDamage = Math.max(...petalDominoProducts);
 const petalDominoBaseDamage = petalDominoProducts.map((p) => p / petalDominoProducts.length).reduce((sum, ele) => sum + ele);
 
 const TPS = 25;
+
+const SIMULATION_DURATION = 30 * TPS;
+const MAX_COLLIDABLE_PHASE = Math.PI * 0.6/*magic number from ultra rice*/;
 
 export default class PetalDPSCalculator {
 
@@ -74,7 +79,7 @@ export default class PetalDPSCalculator {
 			hitCount = Math.min(hitCount, TPS * petalInfo.duration);
 		}
 
-		let totalDamage = petalInfo.damage;
+		let damageToTarget = Math.max(0, petalInfo.damage - targetArmor);
 		{
 			// peas & grapes
 			let isSingleBeforeProjectile = false;
@@ -83,7 +88,7 @@ export default class PetalDPSCalculator {
 			}
 
 			if (!isSingleBeforeProjectile) {
-				totalDamage *= petalInfo.numCopies;
+				damageToTarget *= petalInfo.numCopies;
 			}
 		}
 
@@ -92,14 +97,59 @@ export default class PetalDPSCalculator {
 			(typeof petalInfo.reloadTime === "number") ||
 			(typeof petalInfo.activationTime === "number")
 		) {
-			const time = (petalInfo.reloadTime || 0) * this.options.state.flowerTalentReloadMultiplier + (petalInfo.activationTime || 0) + 1000 / TPS * hitCount;
-			dps = (totalDamage * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
-			dps += petalInfo.lightningDPS;
-			dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
+
+		}
+
+		const petalReloadTime = (petalInfo.reloadTime || 0) * this.options.state.flowerTalentReloadMultiplier;
+		if (
+			(typeof petalInfo.reloadTime === "number") &&
+			(petalInfo.isOnOrbit)
+		) {
+			let petalReloaded = true;
+			let petalReloadTick = 0;
+
+			let petalHitCount = 0;
+			let totalDamageToTarget = 0;
+
+			for (let t = 0; t < SIMULATION_DURATION; t++) {
+				const phase = this.options.state.flowerPetalRotation * (t / TPS) % (2 * Math.PI);
+
+				const isCollidable = (phase >= 0) && (phase <= MAX_COLLIDABLE_PHASE);
+				let hit = false;
+				if (petalReloaded) {
+					if (isCollidable) {
+						hit = true;
+					}
+				} else {
+					petalReloadTick++;
+					if (petalReloadTick >= petalReloadTime / 1000 * TPS) {
+						petalReloaded = true;
+					}
+				}
+
+				if (hit) {
+					petalHitCount++;
+
+					totalDamageToTarget += damageToTarget;
+					if (petalHitCount >= hitCount) {
+						petalHitCount = 0;
+						petalReloaded = false;
+						petalReloadTick = 0;
+					}
+				}
+			}
+
+			dps = totalDamageToTarget / SIMULATION_DURATION * TPS;
+		} else {
+			const time = petalReloadTime + (petalInfo.activationTime || 0) + 1000 / TPS * hitCount;
+			dps = (damageToTarget * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
 		}
 		if (typeof petalInfo.damageDPS === "number") {
 			dps = petalInfo.damageDPS;
 		}
+		dps += petalInfo.lightningDPS;
+		dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
+
 		return dps;
 	}
 
@@ -113,6 +163,7 @@ export default class PetalDPSCalculator {
 		const petal = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === options.petal.sid);
 		if (!petal) throw new Error(`Petal with SID ${options.petal.sid} not found`);
 
+		let isOnOrbit = true;
 		let duration: number | undefined;
 		let health = 0;
 		let damage = 0;
@@ -220,6 +271,8 @@ export default class PetalDPSCalculator {
 				health = ((findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Health") || [])[1] || 0) * this.options.state.flowerTalentSummonerMultiplier;
 				damage = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
 				armor = (findTranslation<[number]>(contentMOBTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+
+				isOnOrbit = false;
 			}
 
 			const spawn = (findTranslation<[number, MobType]>(rarity.tooltip, "Petal/Attribute/Spawn") || [])[2];
@@ -239,6 +292,8 @@ export default class PetalDPSCalculator {
 				if ((typeof spawnManaCost === "number") && (typeof duration === "number")) {
 					spawnCount = Math.min((duration * this.options.state.flowerManaPerSecond / spawnManaCost), duration);
 				}
+
+				isOnOrbit = false;
 			}
 
 			if (typeof rarity.reloadTime === "number") reloadTime = rarity.reloadTime;
@@ -255,7 +310,13 @@ export default class PetalDPSCalculator {
 			evasionChance = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Evasion") || [])[1] || 0
 		}
 
+		// moon & wax
+		if (["moon", "wax"].includes(petal.sid)) {
+			isOnOrbit = false;
+		}
+
 		return {
+			isOnOrbit,
 			duration,
 			health,
 			damage,
