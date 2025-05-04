@@ -17,6 +17,10 @@ export default class PetalsEvaluatorFireAntHell extends PetalsEvaluator {
 		this.scoreMultiplier["web"] = 10;
 		this.scoreMultiplier["jelly"] = 6;
 		this.scoreMultiplier["moon"] = 8.6;
+
+		this.scoreOverrider["wax"] = (rarity) => {
+			return 0.7 * Math.pow(3, rarity - 6); 
+		};
 	}
 
 }

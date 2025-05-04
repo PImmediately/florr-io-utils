@@ -41,6 +41,7 @@ export default class PetalsEvaluator {
 		"mecha_missile": 0.25, // projectile
 		"laser": 0.2, // cannot always be touched
 	};
+	public scoreOverrider: Record<string, (ratity: number) => number> = {};
 
 	public constructor(public readonly gameClient: GameClient) {
 	}
@@ -52,10 +53,16 @@ export default class PetalsEvaluator {
 
 		return dpss.map((dps) => {
 			const actualScore = dps.dps / baseDPS.dps;
+
+			let score = actualScore * ((typeof this.scoreMultiplier[dps.petal.sid] === "number") ? this.scoreMultiplier[dps.petal.sid]! : 1);
+			if (dps.petal.sid in this.scoreOverrider) {
+				score = this.scoreOverrider[dps.petal.sid]!(dps.petal.rarity);
+			}
+
 			return {
 				petal: dps.petal,
 				dps: dps.dps,
-				score: actualScore * ((typeof this.scoreMultiplier[dps.petal.sid] === "number") ? this.scoreMultiplier[dps.petal.sid]! : 1),
+				score,
 				actualScore: actualScore,
 				cloverRarity: dps.cloverRarity,
 				ultraMagicLeafCount: dps.ultraMagicLeafCount,
