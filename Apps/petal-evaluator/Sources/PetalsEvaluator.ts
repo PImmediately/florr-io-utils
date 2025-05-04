@@ -217,15 +217,19 @@ export default class PetalsEvaluator {
 			return {
 				title,
 				petalSID: score.petal.sid,
+				petalRarity: score.petal.rarity,
+				cloverRarity: score.cloverRarity,
 				score: score.score,
 				dps: score.dps,
 			};
 		});
 		const longestTitleLength = Math.max(...texts.map(({ title }) => title.length));
 		return texts
-			.sort(({ petalSID: a1, title: a2 }, { petalSID: b1, title: b2 }) => {
+			.sort(({ petalSID: a1, petalRarity: a2, cloverRarity: a3, title: a4 }, { petalSID: b1, petalRarity: b2, cloverRarity: b3, title: b4 }) => {
 				if (a1 !== b1) return a1 > b1 ? 1 : -1;
-				return b1 < b2 ? 1 : -1;
+				if (a2 !== b2) return a2 > b2 ? 1 : -1;
+				if (((typeof a3 === "number") && (typeof b3 === "number")) && (a3 !== b3)) return a3 > b3 ? 1 : -1;
+				return a4 > b4 ? 1 : -1;
 			})
 			.map(({ title, score, dps }) => {
 				return `${title.padEnd(longestTitleLength, " ")} : ${score.toFixed(1).padStart(4, " ")}   (${Math.round(dps)})`;
