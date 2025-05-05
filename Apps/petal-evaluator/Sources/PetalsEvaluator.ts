@@ -178,7 +178,7 @@ export default class PetalsEvaluator {
 			}
 			if (
 				(toRaritySID(result.petal.rarity) === "unique") &&
-				(["starfish"/*xayo*/].includes(result.petal.sid))
+				(["starfish"/*xayo*/, "bone"].includes(result.petal.sid))
 			) {
 				return true;
 			}
