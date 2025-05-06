@@ -54,7 +54,7 @@ export default class PetalDPSCalculator {
 
 		const targetTooltip = this.options.mob.rarities[this.options.mobRarity]?.tooltip;
 		if (!targetTooltip) throw new Error(`MOB tooltip not found`);
-		const targetDamage = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
+		const targetDamage = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage/Lightning") || findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
 		const targetArmor = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
 
 		const damageToPetal = targetDamage + targetArmor - petalInfo.armor;
