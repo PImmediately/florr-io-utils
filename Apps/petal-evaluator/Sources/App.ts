@@ -9,6 +9,7 @@ import PetalsEvaluator from "./PetalsEvaluator";
 import PetalsEvaluatorNormalAntHell from "./PetalsEvaluatorNormalAntHell";
 import PetalsEvaluatorFireAntHell from "./PetalsEvaluatorFireAntHell";
 import PetalsEvaluatorDesert from "./PetalsEvaluatorDesert";
+import PetalsEvaluatorOceanEnd from "./PetalsEvaluatorOceanEnd";
 
 (() => {
 	const zoneDirPath = path.join(__dirname, "..", "zones");
@@ -58,6 +59,7 @@ import PetalsEvaluatorDesert from "./PetalsEvaluatorDesert";
 	evaluators.add(new PetalsEvaluatorNormalAntHell(gameClient));
 	evaluators.add(new PetalsEvaluatorFireAntHell(gameClient));
 	evaluators.add(new PetalsEvaluatorDesert(gameClient));
+	evaluators.add(new PetalsEvaluatorOceanEnd(gameClient));
 
 	evaluators.forEach((evaluator) => {
 		const results = evaluator.evaluate();
