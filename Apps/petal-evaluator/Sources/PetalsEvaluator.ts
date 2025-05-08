@@ -210,6 +210,8 @@ export default class PetalsEvaluator {
 			return true;
 		});
 
+		const header = `# Evaluation\n- [Base Evaluation](#base-evaluation)\n- [Additional Evaluation](#additional-evaluation)\n`;
+
 		let baseEvaluationText = `## Base Evaluation\n|Petal|Rarity|Note|Score|DPS|\n|:-:|:-:|:-:|:-:|:-:|\n`;
 		baseEvaluationText += results
 			.map((score) => {
@@ -251,7 +253,7 @@ export default class PetalsEvaluator {
 			const multiplier = 1 / Math.pow(1 - ultraGoldenLeafReloadPerc, n);
 			additionalEvaluationText += `|${n}x \`ultra\` \`golden_leaf\`|${multiplier.toFixed(1)}x|\n`;
 		}
-		return `${baseEvaluationText}\n${additionalEvaluationText}`;
+		return `${header}\n${baseEvaluationText}\n${additionalEvaluationText}`;
 	}
 
 }
