@@ -63,9 +63,9 @@ import PetalsEvaluatorOceanEnd from "./PetalsEvaluatorOceanEnd";
 
 	evaluators.forEach((evaluator) => {
 		const results = evaluator.evaluate();
-		const text = evaluator.evaluationsToText(results);
+		const text = evaluator.evaluationsToMarkdown(results);
 
-		const filePath = path.join(zoneDirPath, `${evaluator.name}.txt`);
+		const filePath = path.join(zoneDirPath, `${evaluator.name}.md`);
 		fs.writeFileSync(filePath, text, { encoding: "utf-8" });
 	});
 
