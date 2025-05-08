@@ -1,4 +1,4 @@
-## Score
+## Base Evaluation
 |Petal|Rarity|Note|Score|DPS|
 |:-:|:-:|:-:|:-:|:-:|
 |`air`|`super`||0.0|0|
@@ -122,3 +122,16 @@
 |`yggdrasil`|`super`||0.0|0|
 |`yin_yang`|`super`||0.7|14191|
 |`yucca`|`super`||0.3|6901|
+## Additional Evaluation
+The scores of petals such as `beetle_egg`, `ant_egg`, `moon` and `wax` are multiplied according to the table below.
+|Petal|Multiplier|
+|:-:|:-:|
+|1x `ultra` `golden_leaf`|1.2x|
+|2x `ultra` `golden_leaf`|1.5x|
+|3x `ultra` `golden_leaf`|1.9x|
+|4x `ultra` `golden_leaf`|2.3x|
+|5x `ultra` `golden_leaf`|2.9x|
+|6x `ultra` `golden_leaf`|3.6x|
+|7x `ultra` `golden_leaf`|4.4x|
+|8x `ultra` `golden_leaf`|5.5x|
+|9x `ultra` `golden_leaf`|6.8x|

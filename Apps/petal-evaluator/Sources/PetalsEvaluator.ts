@@ -210,7 +210,8 @@ export default class PetalsEvaluator {
 			return true;
 		});
 
-		let scoreText = results
+		let baseEvaluationText = `## Base Evaluation\n|Petal|Rarity|Note|Score|DPS|\n|:-:|:-:|:-:|:-:|:-:|\n`;
+		baseEvaluationText += results
 			.map((score) => {
 				let note = "";
 				if (typeof score.cloverRarity === "number") note = `with \`${toRaritySID(score.cloverRarity)}\` \`clover\``;
@@ -233,8 +234,24 @@ export default class PetalsEvaluator {
 			.map(({ petalSID, petalRarity, note, score, dps }) => {
 				return `|\`${petalSID}\`|\`${toRaritySID(petalRarity)}\`|${note}|${score.toFixed(1)}|${Math.round(dps)}|`;
 			}).join("\n");
-		scoreText = `## Score\n|Petal|Rarity|Note|Score|DPS|\n|:-:|:-:|:-:|:-:|:-:|\n${scoreText}`;
-		return `${scoreText}`;
+
+		const multipliedPetalSIDs = ["beetle_egg", "ant_egg", "moon", "wax"];
+		const ultraGoldenLeafReloadPerc = (() => {
+			const petalGoldenLeaf = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "golden_leaf")!;
+			const _ = petalGoldenLeaf.rarities[toRarityIndex("ultra")]!;
+			return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ReloadPerc") || [])[1] || 0;
+		})();
+
+		let additionalEvaluationText = `## Additional Evaluation\n`;
+		additionalEvaluationText += `The scores of petals such as ${((_) => {
+			return _.length > 1 ? `${_.slice(0, -1).join(", ")} and ${_.slice(-1)}` : _[0] || ""
+		})(multipliedPetalSIDs.map((_) => `\`${_}\``))} are multiplied according to the table below.\n`;
+		additionalEvaluationText += `|Petal|Multiplier|\n|:-:|:-:|\n`;
+		for (let n = 1; n <= 9; n++) {
+			const multiplier = 1 / Math.pow(1 - ultraGoldenLeafReloadPerc, n);
+			additionalEvaluationText += `|${n}x \`ultra\` \`golden_leaf\`|${multiplier.toFixed(1)}x|\n`;
+		}
+		return `${baseEvaluationText}\n${additionalEvaluationText}`;
 	}
 
 }
