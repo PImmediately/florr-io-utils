@@ -126,6 +126,7 @@
 |`yggdrasil`|`super`||0.0|0|
 |`yin_yang`|`super`||0.7|28383|
 |`yucca`|`super`||0.3|13803|
+
 ## Additional Evaluation
 The scores of petals such as `beetle_egg`, `ant_egg`, `moon` and `wax` are multiplied according to the table below.
 |Petal|Multiplier|

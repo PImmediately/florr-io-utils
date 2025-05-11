@@ -236,6 +236,7 @@ export default class PetalsEvaluator {
 			.map(({ petalSID, petalRarity, note, score, dps }) => {
 				return `|\`${petalSID}\`|\`${toRaritySID(petalRarity)}\`|${note}|${score.toFixed(1)}|${Math.round(dps)}|`;
 			}).join("\n");
+		baseEvaluationText += "\n";
 
 		const multipliedPetalSIDs = ["beetle_egg", "ant_egg", "moon", "wax"];
 		const ultraGoldenLeafReloadPerc = (() => {
