@@ -60,8 +60,7 @@ export default class PetalDPSCalculator {
 		const damageToPetal = targetDamage + targetArmor - petalInfo.armor;
 		let hitCount = (damageToPetal > 0) ? Math.ceil(petalInfo.health / damageToPetal) : Infinity;
 		{
-			// lightning
-			if (petalInfo.isDamageLightning) {
+			if (petalInfo.isMultihitable) {
 				hitCount = 1;
 			}
 
@@ -168,7 +167,7 @@ export default class PetalDPSCalculator {
 		let health = 0;
 		let damage = 0;
 		let damageDPS: number | undefined;
-		let isDamageLightning = false;
+		let isMultihitable = false;
 		let lightningDPS = 0;
 		let poisonDPS = 0;
 		let armor = 0;
@@ -233,7 +232,7 @@ export default class PetalDPSCalculator {
 				// lightning
 				{
 					const lightning = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Lightning") || [])[1];
-					isDamageLightning = (typeof lightning === "number");
+					isMultihitable = (typeof lightning === "number");
 					if (lightning) {
 						damage = lightning;
 					}
@@ -247,6 +246,11 @@ export default class PetalDPSCalculator {
 					lightningDPS = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/DamagePerSecond/Lightning") || [])[1] || 0;
 					if (petal.sid === "laser") {
 						lightningDPS *= this.options.state.touchedLaserEntityCount;
+					}
+
+					const damageLightning = (findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Damage/Lightning") || [])[1];
+					if (typeof damageLightning === "number") {
+						damage = damageLightning;
 					}
 				}
 			}
@@ -321,7 +325,7 @@ export default class PetalDPSCalculator {
 			health,
 			damage,
 			damageDPS,
-			isDamageLightning,
+			isMultihitable,
 			lightningDPS,
 			armor,
 			poisonDPS,

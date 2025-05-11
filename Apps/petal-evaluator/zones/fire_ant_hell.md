@@ -80,7 +80,7 @@
 |`mecha_missile`|`super`||0.2|36061|
 |`mimic`|`super`||0.0|0|
 |`missile`|`super`||0.2|36061|
-|`mjolnir`|`unique`||0.0|0|
+|`mjolnir`|`unique`||67.0|2878289|
 |`monstera`|`super`||0.0|0|
 |`moon`|`ultra`||2.0|9752|
 |`moon`|`super`||14.7|73304|
