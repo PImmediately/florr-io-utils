@@ -19,6 +19,7 @@ export interface PetalEvaluation {
 export default class PetalsEvaluator {
 
 	public name: string | null = null;
+	public hasAreaTooManyMOBs = false;
 
 	public dpsCalculatorManifest = new PetalDPSCalculatorManifest();
 
@@ -50,18 +51,23 @@ export default class PetalsEvaluator {
 		const dpss = this.calcDPSOnAllPetals();
 		const baseDPS = dpss.find((dps) => ((dps.petal.sid === this.basePetalSID) && (dps.petal.rarity === this.basePetalRarity)));
 		if (!baseDPS) throw new Error("Base evaluation petal not found");
+		const baseDPSResult = baseDPS.dps.calc();
 
 		return dpss.map((dps) => {
-			const actualScore = dps.dps / baseDPS.dps;
+			const result = dps.dps.calc();
+			const actualScore = result.dps / baseDPSResult.dps;
 
 			let score = actualScore * ((typeof this.scoreMultiplier[dps.petal.sid] === "number") ? this.scoreMultiplier[dps.petal.sid]! : 1);
 			if (dps.petal.sid in this.scoreOverrider) {
 				score = this.scoreOverrider[dps.petal.sid]!(dps.petal.rarity);
 			}
+			if ((result.isOverMaxCollidablePhase) && (this.hasAreaTooManyMOBs)) {
+				score *= 1.5;
+			}
 
 			return {
 				petal: dps.petal,
-				dps: dps.dps,
+				dps: result.dps,
 				score,
 				actualScore: actualScore,
 				cloverRarity: dps.cloverRarity,
@@ -79,7 +85,7 @@ export default class PetalsEvaluator {
 				sid: string
 				rarity: number;
 			};
-			dps: number;
+			dps: PetalDPSCalculator;
 			cloverRarity?: number;
 			ultraMagicLeafCount?: number;
 		}>();
@@ -113,7 +119,7 @@ export default class PetalsEvaluator {
 						mob,
 						mobRarity: this.dpsCalculatorManifest.targetMOBRarity!,
 						state: dpsStateBaseOptions
-					}).calc()
+					})
 				});
 
 				if (petal.sid === "dice") {
@@ -133,7 +139,7 @@ export default class PetalsEvaluator {
 									...dpsStateBaseOptions,
 									flowerLuck: this.dpsCalculatorManifest.flowerBaseLuck + luck
 								}
-							}).calc(),
+							}),
 							cloverRarity
 						});
 					});
@@ -157,7 +163,7 @@ export default class PetalsEvaluator {
 									...dpsStateBaseOptions,
 									flowerManaPerSecond
 								}
-							}).calc(),
+							}),
 							ultraMagicLeafCount: n
 						});
 					}

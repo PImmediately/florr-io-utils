@@ -31,7 +31,7 @@
 |`coin`|`super`||1.0|64444|
 |`compass`|`super`||0.0|8234|
 |`coral`|`super`||0.2|15649|
-|`corn`|`super`||0.9|59006|
+|`corn`|`super`||1.4|59006|
 |`corruption`|`super`||0.0|0|
 |`cotton`|`super`||0.0|0|
 |`crown`|`unique`||13.4|862329|
@@ -48,7 +48,7 @@
 |`glass`|`super`||0.5|32805|
 |`golden_leaf`|`super`||1.1|73333|
 |`grapes`|`super`||0.4|90827|
-|`heavy`|`super`||1.2|80220|
+|`heavy`|`super`||1.9|80220|
 |`honey`|`super`||0.0|0|
 |`iris`|`super`||1.3|86508|
 |`jelly`|`super`||0.7|42574|
@@ -80,14 +80,14 @@
 |`mecha_missile`|`super`||0.1|36061|
 |`mimic`|`super`||0.0|0|
 |`missile`|`super`||0.1|36061|
-|`mjolnir`|`unique`||57.3|3689444|
+|`mjolnir`|`unique`||85.9|3689444|
 |`monstera`|`super`||0.0|0|
 |`moon`|`ultra`||0.2|15306|
 |`moon`|`super`||1.5|97048|
 |`nazar`|`super`||0.0|0|
 |`orange`|`super`||0.8|48523|
 |`orb`|`super`||0.0|0|
-|`pearl`|`super`||0.4|105259|
+|`pearl`|`super`||0.6|105259|
 |`peas`|`super`||0.1|37131|
 |`pincer`|`super`||1.3|82037|
 |`plank`|`super`||0.0|69538|
@@ -97,7 +97,7 @@
 |`privet`|`super`||0.0|0|
 |`relic`|`super`||0.0|0|
 |`rice`|`super`||0.3|20957|
-|`rock`|`super`||1.5|97740|
+|`rock`|`super`||2.3|97740|
 |`root`|`super`||0.0|0|
 |`rose`|`super`||0.1|8972|
 |`rubber`|`super`||0.0|7218|

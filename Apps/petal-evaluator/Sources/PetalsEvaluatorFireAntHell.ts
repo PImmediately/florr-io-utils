@@ -6,6 +6,7 @@ import { toRarityIndex } from "./GameTypes";
 export default class PetalsEvaluatorFireAntHell extends PetalsEvaluator {
 
 	override name = "fire_ant_hell";
+	override hasAreaTooManyMOBs = true;
 
 	public constructor(gameClient: GameClient) {
 		super(gameClient);

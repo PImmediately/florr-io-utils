@@ -43,6 +43,9 @@ export default class PetalDPSCalculator {
 	}
 
 	public calc() {
+		let dps = 0;
+		let isOverMaxCollidablePhase = false;
+
 		const petalInfo = this.getPetalInfo({
 			petal: {
 				sid: this.options.petal.sid,
@@ -50,106 +53,103 @@ export default class PetalDPSCalculator {
 			},
 			flowerLuck: this.options.state.flowerLuck
 		});
-		if (petalInfo.damage <= 0) return 0;
+		if (petalInfo.damage > 0) {
 
-		const targetTooltip = this.options.mob.rarities[this.options.mobRarity]?.tooltip;
-		if (!targetTooltip) throw new Error(`MOB tooltip not found`);
-		const targetDamage = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage/Lightning") || findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
-		const targetArmor = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
+			const targetTooltip = this.options.mob.rarities[this.options.mobRarity]?.tooltip;
+			if (!targetTooltip) throw new Error(`MOB tooltip not found`);
+			const targetDamage = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage/Lightning") || findTranslation<[number]>(targetTooltip, "Mob/Attribute/Damage") || [])[1] || 0;
+			const targetArmor = (findTranslation<[number]>(targetTooltip, "Mob/Attribute/Armor") || [])[1] || 0;
 
-		const damageToPetal = targetDamage + targetArmor - petalInfo.armor;
-		let hitCount = (damageToPetal > 0) ? Math.ceil(petalInfo.health / damageToPetal) : Infinity;
-		{
-			if (petalInfo.isMultihitable) {
-				hitCount = 1;
-			}
-
-			// evasion
-			if (petalInfo.evasionChance > 0) {
-				hitCount *= 1 / (1 - petalInfo.evasionChance);
-			}
-
-			// undead
-			if (typeof petalInfo.undeadDuration === "number") {
-				hitCount += TPS * petalInfo.undeadDuration;
-			}
-		}
-		if (typeof petalInfo.duration === "number") {
-			hitCount = Math.min(hitCount, TPS * petalInfo.duration);
-		}
-
-		let damageToTarget = Math.max(0, petalInfo.damage - targetArmor);
-		{
-			// peas & grapes
-			let isSingleBeforeProjectile = false;
-			if (["peas", "grapes"].includes(this.options.petal.sid)) {
-				isSingleBeforeProjectile = true;
-			}
-
-			if (!isSingleBeforeProjectile) {
-				damageToTarget *= petalInfo.numCopies;
-			}
-		}
-
-		let dps = 0;
-		if (
-			(typeof petalInfo.reloadTime === "number") ||
-			(typeof petalInfo.activationTime === "number")
-		) {
-
-		}
-
-		const petalReloadTime = (petalInfo.reloadTime || 0) * this.options.state.flowerTalentReloadMultiplier;
-		if (
-			(typeof petalInfo.reloadTime === "number") &&
-			(petalInfo.isOnOrbit)
-		) {
-			let petalReloaded = true;
-			let petalReloadTick = 0;
-
-			let petalHitCount = 0;
-			let totalDamageToTarget = 0;
-
-			for (let t = 0; t < SIMULATION_DURATION; t++) {
-				const phase = this.options.state.flowerPetalRotation * (t / TPS) % (2 * Math.PI);
-
-				const isCollidable = (phase >= 0) && (phase <= MAX_COLLIDABLE_PHASE);
-				let hit = false;
-				if (petalReloaded) {
-					if (isCollidable) {
-						hit = true;
-					}
-				} else {
-					petalReloadTick++;
-					if (petalReloadTick >= petalReloadTime / 1000 * TPS) {
-						petalReloaded = true;
-					}
+			const damageToPetal = targetDamage + targetArmor - petalInfo.armor;
+			let hitCount = (damageToPetal > 0) ? Math.ceil(petalInfo.health / damageToPetal) : Infinity;
+			{
+				if (petalInfo.isMultihitable) {
+					hitCount = 1;
 				}
 
-				if (hit) {
-					petalHitCount++;
+				// evasion
+				if (petalInfo.evasionChance > 0) {
+					hitCount *= 1 / (1 - petalInfo.evasionChance);
+				}
 
-					totalDamageToTarget += damageToTarget;
-					if (petalHitCount >= hitCount) {
-						petalHitCount = 0;
-						petalReloaded = false;
-						petalReloadTick = 0;
-					}
+				// undead
+				if (typeof petalInfo.undeadDuration === "number") {
+					hitCount += TPS * petalInfo.undeadDuration;
+				}
+			}
+			if (typeof petalInfo.duration === "number") {
+				hitCount = Math.min(hitCount, TPS * petalInfo.duration);
+			}
+
+			let damageToTarget = Math.max(0, petalInfo.damage - targetArmor);
+			{
+				// peas & grapes
+				let isSingleBeforeProjectile = false;
+				if (["peas", "grapes"].includes(this.options.petal.sid)) {
+					isSingleBeforeProjectile = true;
+				}
+
+				if (!isSingleBeforeProjectile) {
+					damageToTarget *= petalInfo.numCopies;
 				}
 			}
 
-			dps = totalDamageToTarget / SIMULATION_DURATION * TPS;
-		} else {
-			const time = petalReloadTime + (petalInfo.activationTime || 0) + 1000 / TPS * hitCount;
-			dps = (damageToTarget * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
-		}
-		if (typeof petalInfo.damageDPS === "number") {
-			dps = petalInfo.damageDPS;
-		}
-		dps += petalInfo.lightningDPS;
-		dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
+			const petalReloadTime = (petalInfo.reloadTime || 0) * this.options.state.flowerTalentReloadMultiplier;
+			if (
+				(typeof petalInfo.reloadTime === "number") &&
+				(petalInfo.isOnOrbit)
+			) {
+				let petalReloaded = true;
+				let petalReloadTick = 0;
 
-		return dps;
+				let petalHitCount = 0;
+				let totalDamageToTarget = 0;
+
+				isOverMaxCollidablePhase = this.options.state.flowerPetalRotation / TPS * hitCount >= MAX_COLLIDABLE_PHASE;
+				for (let t = 0; t < SIMULATION_DURATION; t++) {
+					const phase = this.options.state.flowerPetalRotation * (t / TPS) % (2 * Math.PI);
+
+					const isCollidable = (phase >= 0) && (phase <= MAX_COLLIDABLE_PHASE);
+					let hit = false;
+					if (petalReloaded) {
+						if (isCollidable) {
+							hit = true;
+						}
+					} else {
+						petalReloadTick++;
+						if (petalReloadTick >= petalReloadTime / 1000 * TPS) {
+							petalReloaded = true;
+						}
+					}
+
+					if (hit) {
+						petalHitCount++;
+
+						totalDamageToTarget += damageToTarget;
+						if (petalHitCount >= hitCount) {
+							petalHitCount = 0;
+							petalReloaded = false;
+							petalReloadTick = 0;
+						}
+					}
+				}
+
+				dps = totalDamageToTarget / SIMULATION_DURATION * TPS;
+			} else {
+				const time = petalReloadTime + (petalInfo.activationTime || 0) + 1000 / TPS * hitCount;
+				dps = (damageToTarget * hitCount * ((typeof petalInfo.spawnCount === "number") ? petalInfo.spawnCount : 1)) / (time / 1000);
+			}
+			if (typeof petalInfo.damageDPS === "number") {
+				dps = petalInfo.damageDPS;
+			}
+			dps += petalInfo.lightningDPS;
+			dps += petalInfo.poisonDPS * this.options.state.flowerTalentPoisonMultiplier;
+		}
+
+		return {
+			dps,
+			isOverMaxCollidablePhase,
+		};
 	}
 
 	private getPetalInfo(options: {

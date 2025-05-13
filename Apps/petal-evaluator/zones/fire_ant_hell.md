@@ -17,7 +17,7 @@
 |`beetle_egg`|`super`||2.9|122533|
 |`blood_stinger`|`super`||1.4|60420|
 |`bone`|`super`||1.5|64444|
-|`bone`|`unique`||17.3|743523|
+|`bone`|`unique`||26.0|743523|
 |`bubble`|`super`||0.0|0|
 |`bulb`|`super`||0.0|13803|
 |`bur`|`super`||0.2|6901|
@@ -31,7 +31,7 @@
 |`coin`|`super`||1.0|42963|
 |`compass`|`super`||0.0|6256|
 |`coral`|`super`||0.4|15649|
-|`corn`|`super`||1.2|50725|
+|`corn`|`super`||1.8|50725|
 |`corruption`|`super`||0.0|0|
 |`cotton`|`super`||0.0|0|
 |`crown`|`unique`||20.1|862329|
@@ -48,7 +48,7 @@
 |`glass`|`super`||0.8|32805|
 |`golden_leaf`|`super`||0.9|37131|
 |`grapes`|`super`||0.5|86841|
-|`heavy`|`super`||1.3|56027|
+|`heavy`|`super`||2.0|56027|
 |`honey`|`super`||0.0|0|
 |`iris`|`super`||1.9|83403|
 |`jelly`|`super`||4.0|28383|
@@ -80,7 +80,7 @@
 |`mecha_missile`|`super`||0.2|36061|
 |`mimic`|`super`||0.0|0|
 |`missile`|`super`||0.2|36061|
-|`mjolnir`|`unique`||67.0|2878289|
+|`mjolnir`|`unique`||100.5|2878289|
 |`monstera`|`super`||0.0|0|
 |`moon`|`ultra`||2.0|9752|
 |`moon`|`super`||14.7|73304|

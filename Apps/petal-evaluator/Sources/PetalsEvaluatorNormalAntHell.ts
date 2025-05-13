@@ -6,6 +6,7 @@ import { toRarityIndex } from "./GameTypes";
 export default class PetalsEvaluatorNormalAntHell extends PetalsEvaluator {
 
 	override name = "normal_ant_hell";
+	override hasAreaTooManyMOBs = true;
 
 	public constructor(gameClient: GameClient) {
 		super(gameClient);
@@ -13,8 +14,6 @@ export default class PetalsEvaluatorNormalAntHell extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBSID = "ant_soldier";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 6;
-
-		this.scoreMultiplier["bone"] = 1.5; // it can multihit, so with lots of mobs around, it always hits
 	}
 
 }
