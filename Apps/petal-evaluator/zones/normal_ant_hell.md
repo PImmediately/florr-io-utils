@@ -16,8 +16,8 @@
 |`battery`|`super`||1.6|104587|
 |`beetle_egg`|`super`||3.1|199200|
 |`blood_stinger`|`super`||0.9|60420|
-|`bone`|`super`||2.8|180443|
-|`bone`|`unique`||11.5|743523|
+|`bone`|`super`||4.2|180443|
+|`bone`|`unique`||17.3|743523|
 |`bubble`|`super`||0.0|0|
 |`bulb`|`super`||0.0|20704|
 |`bur`|`super`||0.2|13803|

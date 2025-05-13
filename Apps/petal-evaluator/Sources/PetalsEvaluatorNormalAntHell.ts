@@ -13,6 +13,8 @@ export default class PetalsEvaluatorNormalAntHell extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBSID = "ant_soldier";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 6;
+
+		this.scoreMultiplier["bone"] = 1.5; // it can multihit, so with lots of mobs around, it always hits
 	}
 
 }
