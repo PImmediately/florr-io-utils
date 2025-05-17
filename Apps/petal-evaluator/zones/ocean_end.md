@@ -119,8 +119,8 @@
 |`totem`|`super`||0.7|28383|
 |`triangle`|`super`||0.0|0|
 |`uranium`|`super`||0.0|0|
-|`wax`|`ultra`||0.0|0|
-|`wax`|`super`||0.0|0|
+|`wax`|`ultra`||-10.0|0|
+|`wax`|`super`||-30.0|0|
 |`web`|`super`||0.2|6901|
 |`wing`|`super`||1.3|57543|
 |`yggdrasil`|`super`||0.0|0|

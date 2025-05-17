@@ -13,6 +13,10 @@ export default class PetalsEvaluatorOceanEnd extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBSID = "crab";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 4;
+
+		this.scoreOverrider["wax"] = (rarity) => {
+			return -10 * Math.pow(3, rarity - 6); 
+		};
 	}
 
 }
