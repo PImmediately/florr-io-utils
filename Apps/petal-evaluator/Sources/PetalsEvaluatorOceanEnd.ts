@@ -14,6 +14,7 @@ export default class PetalsEvaluatorOceanEnd extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 4;
 
+		this.scoreMultiplier["jelly"] = 1.5;
 		this.scoreMultiplier["moon"] = 10.5;
 
 		this.scoreOverrider["wax"] = (rarity) => {
