@@ -82,8 +82,8 @@
 |`missile`|`super`||0.2|36061|
 |`mjolnir`|`unique`||54.8|2354964|
 |`monstera`|`super`||0.0|0|
-|`moon`|`ultra`||0.2|8241|
-|`moon`|`super`||1.5|65300|
+|`moon`|`ultra`||2.0|8241|
+|`moon`|`super`||16.0|65300|
 |`nazar`|`super`||0.0|0|
 |`orange`|`super`||0.6|26128|
 |`orb`|`super`||0.0|0|
