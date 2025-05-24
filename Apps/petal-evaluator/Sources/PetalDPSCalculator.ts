@@ -72,6 +72,11 @@ export default class PetalDPSCalculator {
 					hitCount *= 1 / (1 - petalInfo.evasionChance);
 				}
 
+				// for coral
+				if (this.options.petal.sid === "coral") {
+					hitCount += 2;
+				}
+
 				// undead
 				if (typeof petalInfo.undeadDuration === "number") {
 					hitCount += TPS * petalInfo.undeadDuration;

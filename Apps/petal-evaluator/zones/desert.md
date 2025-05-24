@@ -30,7 +30,7 @@
 |`cog`|`super`||1.7|37131|
 |`coin`|`super`||1.0|21481|
 |`compass`|`super`||0.0|4224|
-|`coral`|`super`||0.7|15649|
+|`coral`|`super`||2.2|46948|
 |`corn`|`super`||1.9|41408|
 |`corruption`|`super`||0.0|0|
 |`cotton`|`super`||0.0|0|
