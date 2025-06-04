@@ -20,6 +20,7 @@ export interface PetalDPSCalculatorOptionsState {
 	flowerManaPerSecond: number;
 
 	maxLigntningBounces: number;
+	touchedGlassEntityCount: number;
 	touchedLaserEntityCount: number;
 }
 
@@ -231,6 +232,7 @@ export default class PetalDPSCalculator {
 					const interval = findTranslation<[number]>(rarity.tooltip, "Petal/Attribute/Interval");
 					if (Array.isArray(interval)) {
 						damageDPS = damage / interval[1];
+						damageDPS *= this.options.state.touchedGlassEntityCount;
 					}
 				}
 

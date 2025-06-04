@@ -13,6 +13,7 @@ export default class PetalDPSCalculatorManifest {
 	public targetMOBRarity: number | null = null;
 
 	public maxLigntningBounces: number = Infinity;
+	public touchedGlassEntityCount = 3;
 	public touchedLaserEntityCount = 3;
 
 }

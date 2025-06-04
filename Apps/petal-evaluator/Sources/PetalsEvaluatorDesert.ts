@@ -13,6 +13,8 @@ export default class PetalsEvaluatorDesert extends PetalsEvaluator {
 		this.dpsCalculatorManifest.targetMOBSID = "beetle";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
 		this.dpsCalculatorManifest.maxLigntningBounces = 4;
+
+		this.dpsCalculatorManifest.touchedGlassEntityCount = 1;
 	}
 
 }

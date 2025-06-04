@@ -101,6 +101,7 @@ export default class PetalsEvaluator {
 			flowerManaPerSecond: this.dpsCalculatorManifest.flowerManaPerSecond,
 
 			maxLigntningBounces: this.dpsCalculatorManifest.maxLigntningBounces,
+			touchedGlassEntityCount: this.dpsCalculatorManifest.touchedGlassEntityCount,
 			touchedLaserEntityCount: this.dpsCalculatorManifest.touchedLaserEntityCount
 		};
 

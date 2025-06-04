@@ -45,7 +45,7 @@
 |`domino`|`super`||1.2|52503|
 |`fangs`|`super`||0.7|27926|
 |`faster`|`super`||0.4|17107|
-|`glass`|`super`||0.8|32805|
+|`glass`|`super`||2.3|98415|
 |`golden_leaf`|`super`||0.9|37131|
 |`grapes`|`super`||0.5|86841|
 |`heavy`|`super`||1.1|45840|
