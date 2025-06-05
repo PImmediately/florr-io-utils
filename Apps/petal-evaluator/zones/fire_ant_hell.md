@@ -123,7 +123,7 @@
 |`wax`|`ultra`||0.7|0|
 |`wax`|`super`||2.1|0|
 |`web`|`super`||1.6|6901|
-|`wing`|`super`||1.3|57543|
+|`wing`|`super`||1.6|57543|
 |`yggdrasil`|`super`||0.0|0|
 |`yin_yang`|`super`||0.7|28383|
 |`yucca`|`super`||0.3|13803|
