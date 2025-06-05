@@ -13,7 +13,7 @@ export default class PetalsEvaluatorFireAntHell extends PetalsEvaluator {
 
 		this.dpsCalculatorManifest.targetMOBSID = "fire_ant_soldier";
 		this.dpsCalculatorManifest.targetMOBRarity = toRarityIndex("ultra");
-		this.dpsCalculatorManifest.maxLigntningBounces = 6;
+		this.dpsCalculatorManifest.maxLigntningBounces = 4;
 
 		this.scoreMultiplier["web"] = 10;
 		this.scoreMultiplier["jelly"] = 6;

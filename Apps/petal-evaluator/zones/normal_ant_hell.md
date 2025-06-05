@@ -13,7 +13,7 @@
 |`bandage`|`super`||0.0|0|
 |`basic`|`super`||0.7|42574|
 |`basil`|`super`||0.0|0|
-|`battery`|`super`||1.6|104587|
+|`battery`|`super`||1.1|69595|
 |`beetle_egg`|`super`||3.1|199200|
 |`blood_stinger`|`super`||0.9|60420|
 |`bone`|`super`||4.2|180443|
@@ -55,8 +55,8 @@
 |`laser`|`super`||1.1|338402|
 |`leaf`|`super`||1.1|73333|
 |`light`|`super`||0.6|36743|
-|`lightning`|`ultra`||0.5|34603|
-|`lightning`|`super`||1.6|104587|
+|`lightning`|`ultra`||0.4|22939|
+|`lightning`|`super`||1.1|69595|
 |`lotus`|`super`||0.0|0|
 |`magic_stick`|`ultra`||0.0|0|
 |`magic_stick`|`ultra`|with 1x `ultra` `magic_leaf`|0.8|52721|
