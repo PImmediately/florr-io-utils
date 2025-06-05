@@ -12,6 +12,7 @@ export interface PetalEvaluation {
 	dps: number;
 	score: number;
 	actualScore: number;
+	hasThirdEye: boolean;
 	cloverRarity: number | undefined;
 	ultraMagicLeafCount: number | undefined;
 }
@@ -64,12 +65,16 @@ export default class PetalsEvaluator {
 			if ((result.isOverMaxCollidablePhase) && (this.hasAreaTooManyMOBs)) {
 				score *= 1.5;
 			}
+			if ((dps.petal.sid === "glass") && (dps.dps.options.state.flowerHasThirdEye)) {
+				score *= 1.5;
+			}
 
 			return {
 				petal: dps.petal,
 				dps: result.dps,
 				score,
 				actualScore: actualScore,
+				hasThirdEye: dps.dps.options.state.flowerHasThirdEye,
 				cloverRarity: dps.cloverRarity,
 				ultraMagicLeafCount: dps.ultraMagicLeafCount,
 			};
@@ -99,6 +104,8 @@ export default class PetalsEvaluator {
 			flowerPetalRotation: this.dpsCalculatorManifest.flowerPetalRotation,
 			flowerLuck: this.dpsCalculatorManifest.flowerBaseLuck,
 			flowerManaPerSecond: this.dpsCalculatorManifest.flowerManaPerSecond,
+
+			flowerHasThirdEye: false,
 
 			maxLigntningBounces: this.dpsCalculatorManifest.maxLigntningBounces,
 			touchedGlassEntityCount: this.dpsCalculatorManifest.touchedGlassEntityCount,
@@ -143,6 +150,23 @@ export default class PetalsEvaluator {
 							}),
 							cloverRarity
 						});
+					});
+				} else if (petal.sid === "glass") {
+					dpss.push({
+						petal: {
+							sid: petal.sid,
+							rarity
+						},
+						dps: new PetalDPSCalculator(this.gameClient, {
+							petal,
+							petalRarity: rarity,
+							mob,
+							mobRarity: this.dpsCalculatorManifest.targetMOBRarity!,
+							state: {
+								...dpsStateBaseOptions,
+								flowerHasThirdEye: true
+							}
+						})
 					});
 				} else if (petal.sid === "magic_stick") {
 					const _ = petalMagicLeaf.rarities[toRarityIndex("ultra")]!;
@@ -223,6 +247,7 @@ export default class PetalsEvaluator {
 		baseEvaluationText += results
 			.map((score) => {
 				let note = "";
+				if (score.hasThirdEye) note = `with \`third_eye\``;
 				if (typeof score.cloverRarity === "number") note = `with \`${toRaritySID(score.cloverRarity)}\` \`clover\``;
 				if (typeof score.ultraMagicLeafCount === "number") note = `with ${score.ultraMagicLeafCount}x \`ultra\` \`magic_leaf\``;
 				return {

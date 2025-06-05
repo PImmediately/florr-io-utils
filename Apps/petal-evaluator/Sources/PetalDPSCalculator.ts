@@ -19,6 +19,8 @@ export interface PetalDPSCalculatorOptionsState {
 	flowerTalentPoisonMultiplier: number;
 	flowerManaPerSecond: number;
 
+	flowerHasThirdEye: boolean;
+
 	maxLigntningBounces: number;
 	touchedGlassEntityCount: number;
 	touchedLaserEntityCount: number;
