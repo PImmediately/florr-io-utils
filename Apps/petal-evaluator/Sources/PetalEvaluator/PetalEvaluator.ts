@@ -104,7 +104,6 @@ export default class PetalEvaluator {
 				[this.gameClient.petalSIDToID("rubber")]: 0,
 				[this.gameClient.petalSIDToID("compass")]: 0,
 				[this.gameClient.petalSIDToID("mecha_missile")]: 0.25, // projectile
-				[this.gameClient.petalSIDToID("laser")]: 0.2, // cannot always be touched
 			},
 			scoreOverrider: {}
 		};

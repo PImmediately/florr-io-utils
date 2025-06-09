@@ -53,7 +53,7 @@
 |`honey`|`super`||0.0|0|-|
 |`iris`|`super`||1.6|99980|-|
 |`jelly`|`super`||0.7|42574|-|
-|`laser`|`super`||0.5|33242|99727|
+|`laser`|`super`||2.3|33242|99727|
 |`leaf`|`super`||1.1|73333|-|
 |`light`|`super`||0.6|36743|-|
 |`lightning`|`ultra`||0.4|5832|23328|
