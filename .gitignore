@@ -1,2 +1,6 @@
 # Node.js
 node_modules
+
+# Build Downloader
+Apps/build-downloader/*
+!Apps/build-downloader/builds/
