@@ -13,7 +13,7 @@
 |`bandage`|`super`||0.0|0|
 |`basic`|`super`||0.7|14191|
 |`basil`|`super`||0.0|0|
-|`battery`|`super`||3.2|69595|
+|`battery`|`super`||3.3|17496|
 |`beetle_egg`|`super`||4.1|88479|
 |`blood_stinger`|`super`||2.8|60420|
 |`bone`|`super`||2.0|42963|
@@ -34,7 +34,7 @@
 |`corn`|`super`||1.9|41408|
 |`corruption`|`super`||0.0|0|
 |`cotton`|`super`||0.0|0|
-|`crown`|`unique`||40.1|862329|
+|`crown`|`unique`||44.5|955748|
 |`cutter`|`super`||0.0|0|
 |`dahlia`|`super`||0.4|8165|
 |`dandelion`|`super`||0.7|13997|
@@ -45,19 +45,19 @@
 |`domino`|`super`||1.2|26252|
 |`fangs`|`super`||0.7|15037|
 |`faster`|`super`||0.8|17107|
-|`glass`|`super`||1.5|32805|
-|`glass`|`super`|with `third_eye`|2.3|32805|
+|`glass`|`super`||2.4|22555|
+|`glass`|`super`|with `third_eye`|3.5|22555|
 |`golden_leaf`|`super`||1.7|37131|
-|`grapes`|`super`||1.0|86841|
+|`grapes`|`super`||0.6|49875|
 |`heavy`|`super`||1.9|40747|
 |`honey`|`super`||0.0|0|
-|`iris`|`super`||3.9|83403|
+|`iris`|`super`||4.5|96997|
 |`jelly`|`super`||0.7|14191|
-|`laser`|`super`||3.1|331501|
+|`laser`|`super`||0.9|33242|
 |`leaf`|`super`||1.7|37131|
 |`light`|`super`||1.7|36743|
-|`lightning`|`ultra`||1.1|22939|
-|`lightning`|`super`||3.2|69595|
+|`lightning`|`ultra`||1.1|5832|
+|`lightning`|`super`||3.3|17496|
 |`lotus`|`super`||0.0|0|
 |`magic_stick`|`ultra`||0.0|0|
 |`magic_stick`|`ultra`|with 1x `ultra` `magic_leaf`|1.2|26422|
@@ -68,20 +68,20 @@
 |`magic_stick`|`ultra`|with 6x `ultra` `magic_leaf`|7.4|158532|
 |`magic_stick`|`ultra`|with 7x `ultra` `magic_leaf`|8.6|184954|
 |`magic_stick`|`super`||0.0|0|
-|`magic_stick`|`super`|with 1x `ultra` `magic_leaf`|6.5|140137|
-|`magic_stick`|`super`|with 2x `ultra` `magic_leaf`|13.0|280274|
-|`magic_stick`|`super`|with 3x `ultra` `magic_leaf`|19.6|420412|
-|`magic_stick`|`super`|with 4x `ultra` `magic_leaf`|26.1|560549|
-|`magic_stick`|`super`|with 5x `ultra` `magic_leaf`|32.6|700686|
-|`magic_stick`|`super`|with 6x `ultra` `magic_leaf`|39.1|840823|
-|`magic_stick`|`super`|with 7x `ultra` `magic_leaf`|45.7|980960|
+|`magic_stick`|`super`|with 1x `ultra` `magic_leaf`|6.6|141392|
+|`magic_stick`|`super`|with 2x `ultra` `magic_leaf`|13.2|282784|
+|`magic_stick`|`super`|with 3x `ultra` `magic_leaf`|19.7|424177|
+|`magic_stick`|`super`|with 4x `ultra` `magic_leaf`|26.3|565569|
+|`magic_stick`|`super`|with 5x `ultra` `magic_leaf`|32.9|706961|
+|`magic_stick`|`super`|with 6x `ultra` `magic_leaf`|39.5|848353|
+|`magic_stick`|`super`|with 7x `ultra` `magic_leaf`|46.1|989745|
 |`magnet`|`super`||0.0|3208|
 |`mark`|`super`||0.0|0|
 |`mecha_antennae`|`super`||0.0|0|
 |`mecha_missile`|`super`||0.4|36061|
 |`mimic`|`super`||0.0|0|
 |`missile`|`super`||0.4|36061|
-|`mjolnir`|`unique`||91.4|1962470|
+|`mjolnir`|`unique`||91.6|1968300|
 |`monstera`|`super`||0.0|0|
 |`moon`|`ultra`||0.3|7159|
 |`moon`|`super`||2.7|58911|
@@ -90,7 +90,7 @@
 |`orb`|`super`||0.0|0|
 |`pearl`|`super`||0.6|53703|
 |`peas`|`super`||0.2|18565|
-|`pincer`|`super`||3.5|75136|
+|`pincer`|`super`||3.3|46792|
 |`plank`|`super`||0.0|28383|
 |`pollen`|`super`||0.4|35381|
 |`poo`|`super`||0.0|6901|

@@ -5,13 +5,22 @@ import type { Mob, Petal } from "./GameTypes";
 
 import GameClient from "./GameClient";
 
-import PetalsEvaluator from "./PetalsEvaluator";
-import PetalsEvaluatorNormalAntHell from "./PetalsEvaluatorNormalAntHell";
-import PetalsEvaluatorFireAntHell from "./PetalsEvaluatorFireAntHell";
-import PetalsEvaluatorDesert from "./PetalsEvaluatorDesert";
-import PetalsEvaluatorOceanEnd from "./PetalsEvaluatorOceanEnd";
+import PetalEvaluator from "./PetalEvaluator/PetalEvaluator";
+import PetalEvaluatorNormalAntHell from "./PetalEvaluator/PetalEvaluatorNormalAntHell";
+import PetalEvaluatorFireAntHell from "./PetalEvaluator/PetalEvaluatorFireAntHell";
+import PetalEvaluatorDesert from "./PetalEvaluator/PetalEvaluatorDesert";
+import PetalEvaluatorOceanEnd from "./PetalEvaluator/PetalEvaluatorOceanEnd";
+
+import PetalEvaluationIndicator from "./PetalEvaluator/PetalEvaluationIndicator";
 
 (() => {
+	const zones: (typeof PetalEvaluator)[] = [
+		PetalEvaluatorNormalAntHell,
+		PetalEvaluatorFireAntHell,
+		PetalEvaluatorDesert,
+		PetalEvaluatorOceanEnd,
+	];
+
 	const zoneDirPath = path.join(__dirname, "..", "zones");
 	if (!fs.existsSync(zoneDirPath)) {
 		fs.mkdirSync(zoneDirPath, { recursive: true });
@@ -55,18 +64,14 @@ import PetalsEvaluatorOceanEnd from "./PetalsEvaluatorOceanEnd";
 	})();
 	if (!gameClient) return;
 
-	const evaluators = new Set<PetalsEvaluator>();
-	evaluators.add(new PetalsEvaluatorNormalAntHell(gameClient));
-	evaluators.add(new PetalsEvaluatorFireAntHell(gameClient));
-	evaluators.add(new PetalsEvaluatorDesert(gameClient));
-	evaluators.add(new PetalsEvaluatorOceanEnd(gameClient));
+	zones.forEach((Zone) => {
+		const evaluator = new Zone(gameClient);
+		const evaluations = evaluator.evaluate();
 
-	evaluators.forEach((evaluator) => {
-		const results = evaluator.evaluate();
-		const text = evaluator.evaluationsToMarkdown(results);
+		const indicator = new PetalEvaluationIndicator(gameClient, evaluations);
+		const content = indicator.toMarkdown();
 
 		const filePath = path.join(zoneDirPath, `${evaluator.name}.md`);
-		fs.writeFileSync(filePath, text, { encoding: "utf-8" });
+		fs.writeFileSync(filePath, content, { encoding: "utf-8" });
 	});
-
 })();

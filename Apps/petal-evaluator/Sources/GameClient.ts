@@ -15,4 +15,16 @@ export default class GameClient {
 		};
 	}
 
+	public petalSIDToID(sid: string) {
+		const id = this.florrio.utils.getPetals().find((petal) => (petal.sid === sid))?.id;
+		if (typeof id !== "number") throw new TypeError(`Petal ${sid} not found`);
+		return id;
+	}
+
+	public mobSIDToID(sid: string) {
+		const id = this.florrio.utils.getMobs().find((mob) => (mob.sid === sid))?.id;
+		if (typeof id !== "number") throw new TypeError(`MOB ${sid} not found`);
+		return id;
+	}
+
 }
