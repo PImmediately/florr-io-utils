@@ -53,7 +53,7 @@ export default class PetalEvaluationIndicator {
 
 		const header = `# Evaluation\n- [Base Evaluation](#base-evaluation)\n- [Additional Evaluation](#additional-evaluation)\n`;
 
-		let baseEvaluationText = `## Base Evaluation\n|Petal|Rarity|Note|Score|DPS|\n|:-:|:-:|:-:|:-:|:-:|\n`;
+		let baseEvaluationText = `## Base Evaluation\n|Petal|Rarity|Note|Score|DPS|DPS (Total)|\n|:-:|:-:|:-:|:-:|:-:|:-:\n`;
 		baseEvaluationText += evaluations
 			.sort((a, b) => {
 				if (a.calculator.simulator.options.petal.petal.sid !== b.calculator.simulator.options.petal.petal.sid) {
@@ -68,7 +68,7 @@ export default class PetalEvaluationIndicator {
 				let note = "";
 				if (evaluation.calculator.simulator.options.flower.hasThirdEye) note = `with \`third_eye\``;
 				if (typeof evaluation.calculator.simulator.options.userdata?.cloverRarity === "number") note = `with \`${toRaritySID(evaluation.calculator.simulator.options.userdata?.cloverRarity)}\` \`clover\``;
-				if (typeof evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount === "number") note = `with ${ evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount}x \`ultra\` \`magic_leaf\``;
+				if (typeof evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount === "number") note = `with ${evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount}x \`ultra\` \`magic_leaf\``;
 
 				return (
 					"|" + "`" + evaluation.calculator.simulator.options.petal.petal.sid + "`" +
@@ -76,6 +76,7 @@ export default class PetalEvaluationIndicator {
 					"|" + note +
 					"|" + evaluation.evaluation.score.toFixed(1) +
 					"|" + Math.round(evaluation.evaluation.damagePerSecondOnOneMOB) +
+					"|" + ((evaluation.evaluation.damagePerSecondOnOneMOB !== evaluation.evaluation.damagePerSecondOnArea) ? Math.round(evaluation.evaluation.damagePerSecondOnArea) : "-") +
 					"|"
 				);
 			}).join("\n");
