@@ -131,12 +131,19 @@ export default class PetalEvaluator {
 			if (calculator.simulator.options.petal.petal.id in this.options.scoreOverrider) {
 				score = this.options.scoreOverrider[calculator.simulator.options.petal.petal.id]!(calculator.simulator.options.petal.rarity);
 			}
-			if ((result.isOverMaxCollidablePhase) && (calculator.options.area.hasManyMOBs)) {
+			if (
+				(calculator.simulator.options.petal.petal.sid !== "glass") &&
+				(result.isOverMaxCollidablePhase) &&
+				(calculator.options.area.hasManyMOBs)
+			) {
 				score *= 1.5;
 			}
 
 			// for glass
-			if ((calculator.simulator.options.petal.petal.sid === "glass") && (calculator.simulator.options.flower.hasThirdEye)) {
+			if (
+				(calculator.simulator.options.petal.petal.sid === "glass") &&
+				(calculator.simulator.options.flower.hasThirdEye)
+			) {
 				score *= 1.5;
 			}
 
