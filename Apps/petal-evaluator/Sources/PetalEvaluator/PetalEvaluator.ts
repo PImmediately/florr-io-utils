@@ -138,14 +138,6 @@ export default class PetalEvaluator {
 				score *= 1.5;
 			}
 
-			// for glass
-			if (
-				(calculator.simulator.options.petal.petal.sid === "glass") &&
-				(calculator.simulator.options.flower.hasThirdEye)
-			) {
-				score *= 1.5;
-			}
-
 			const evaluation: PetalEvaluatorEvaluation = {
 				calculator,
 				evaluation: {

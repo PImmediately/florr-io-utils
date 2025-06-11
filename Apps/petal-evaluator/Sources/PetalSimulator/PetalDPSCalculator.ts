@@ -19,6 +19,15 @@ export default class PetalDPSCalculator {
 
 	public constructor(public readonly simulator: PetalSimulator, options: PetalDPSCalculatorOptions) {
 		this.options = cloneDeep(options);
+
+		// for glass
+		if (
+			(this.simulator.options.petal.petal.sid === "glass") &&
+			(this.simulator.options.flower.hasThirdEye) &&
+			(this.options.area.hasManyMOBs)
+		) {
+			this.options.area.touchedGlassEntityCount *= 1.5;
+		}
 	}
 
 	public calc() {

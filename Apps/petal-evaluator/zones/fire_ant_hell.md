@@ -46,7 +46,7 @@
 |`fangs`|`super`||0.7|27926|-|
 |`faster`|`super`||0.4|17107|-|
 |`glass`|`super`||1.2|22555|50750|
-|`glass`|`super`|with `third_eye`|1.8|22555|50750|
+|`glass`|`super`|with `third_eye`|1.8|22555|76124|
 |`golden_leaf`|`super`||0.9|37131|-|
 |`grapes`|`super`||0.3|49875|-|
 |`heavy`|`super`||2.0|56027|-|
