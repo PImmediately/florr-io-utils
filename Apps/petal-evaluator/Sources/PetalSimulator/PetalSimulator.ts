@@ -295,6 +295,9 @@ export default class PetalSimulator {
 			numCopies = 1;
 		}
 
+		// for unique mjolnir
+		if ((this.options.petal.petal.sid === "mjolnir") && (this.options.petal.rarity === toRarityIndex("unique"))) return 1;
+
 		return numCopies;
 	}
 
