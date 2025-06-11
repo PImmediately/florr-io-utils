@@ -7,13 +7,18 @@ import DamageLightning from "./Damage/DamageLightning";
 import DamagePoison from "./Damage/DamagePoison";
 import DamagePerSecondLightning from "./Damage/DamagePerSecondLightning";
 
+import { cloneDeep } from "lodash";
+
 export interface PetalDPSCalculatorOptions {
 	area: AreaOptions;
 }
 
 export default class PetalDPSCalculator {
 
-	public constructor(public readonly simulator: PetalSimulator, public readonly options: PetalDPSCalculatorOptions) {
+	public readonly options: PetalDPSCalculatorOptions;
+
+	public constructor(public readonly simulator: PetalSimulator, options: PetalDPSCalculatorOptions) {
+		this.options = cloneDeep(options);
 	}
 
 	public calc() {

@@ -12,6 +12,8 @@ import DamagePoison from "./Damage/DamagePoison";
 import DamageLightning from "./Damage/DamageLightning";
 import DamagePerSecondLightning from "./Damage/DamagePerSecondLightning";
 
+import { cloneDeep } from "lodash";
+
 export interface PetalSimulatorOptionsUserdata {
 	cloverRarity?: number;
 	ultraMagicLeafCount?: number;
@@ -38,7 +40,10 @@ export default class PetalSimulator {
 	public static readonly TPS = 25;
 	public static readonly MAX_COLLIDABLE_PHASE = Math.PI * 0.6;
 
-	public constructor(public readonly gameClient: GameClient, public readonly options: PetalSimulatorOptions<PetalSimulatorOptionsUserdata>) {
+	public readonly options: PetalSimulatorOptions<PetalSimulatorOptionsUserdata>;
+
+	public constructor(public readonly gameClient: GameClient, options: PetalSimulatorOptions<PetalSimulatorOptionsUserdata>) {
+		this.options = cloneDeep(options);
 	}
 
 	public simulate() {
