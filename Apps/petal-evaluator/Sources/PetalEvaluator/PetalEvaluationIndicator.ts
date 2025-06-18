@@ -39,8 +39,10 @@ export interface RawPetalAdditionalEvaluation {
 
 export interface RawPetalAdditionalEvaluationRarity {
 	rarity: RaritySID;
-	multiplier?: number;
+	multiplier: number;
 }
+
+export const MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF = ["beetle_egg", "ant_egg", "moon", "wax"];
 
 export default class PetalEvaluationIndicator {
 
@@ -168,8 +170,6 @@ export default class PetalEvaluationIndicator {
 		}
 
 		{
-			const multipliedPetalSIDs = ["beetle_egg", "ant_egg", "moon", "wax"];
-
 			for (let n = 1; n <= 9; n++) {
 				const rarities = new Array<RawPetalAdditionalEvaluationRarity>();
 				for (let rarity = toRarityIndex("ultra"); rarity <= toRarityIndex("ultra"); rarity++) {
@@ -190,7 +190,7 @@ export default class PetalEvaluationIndicator {
 					type: "additional",
 					sid: "golden_leaf",
 					amount: n,
-					targetPetals: multipliedPetalSIDs,
+					targetPetals: MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF,
 					rarities
 				});
 			}
@@ -199,47 +199,88 @@ export default class PetalEvaluationIndicator {
 		return e;
 	}
 
-	public toMarkdown() {
-		const evaluations = this.getEvaluations();
+	public toMarkdown(cachedJSON?: RawPetalEvaluations) {
+		let json: RawPetalEvaluations;
+		if (!cachedJSON) {
+			json = this.toJSON();
+		} else {
+			json = cachedJSON;
+		}
 
 		const header = `# Evaluation\n- [Base Evaluation](#base-evaluation)\n- [Additional Evaluation](#additional-evaluation)\n`;
 
 		let baseEvaluationText = `## Base Evaluation\n|Petal|Rarity|Note|Score|DPS|DPS (Total)|\n|:-:|:-:|:-:|:-:|:-:|:-:\n`;
-		baseEvaluationText += evaluations
-			.map((evaluation) => {
+		json.evaluations.forEach((evaluation) => {
+			if (evaluation.type !== "base") return;
+			evaluation.rarities.forEach((rarity) => {
 				let note = "";
-				if (evaluation.calculator.simulator.options.flower.hasThirdEye) note = `with \`third_eye\``;
-				if (typeof evaluation.calculator.simulator.options.userdata?.cloverRarity === "number") note = `with \`${toRaritySID(evaluation.calculator.simulator.options.userdata?.cloverRarity)}\` \`clover\``;
-				if (typeof evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount === "number") note = `with ${evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount}x \`ultra\` \`magic_leaf\``;
+				if (rarity.withPetals) {
+					const petalCountsEachPetal: Record<string, Record<RaritySID | "none", number>> = {};
+					rarity.withPetals.forEach((petal) => {
+						if (!petalCountsEachPetal[petal.sid]) {
+							const counts = {} as Record<RaritySID | "none", number>;
+							for (let rarity = toRarityIndex("common"); rarity <= toRarityIndex("unique"); rarity++) {
+								counts[toRaritySID(rarity)] = 0;
+							}
+							counts!["none"]! = 0;
+							petalCountsEachPetal[petal.sid] = counts;
+						}
+						if (typeof petal.rarity === "string") {
+							petalCountsEachPetal[petal.sid]![petal.rarity]! += 1;
+						} else {
+							petalCountsEachPetal[petal.sid]!["none"]! += 1;
+						}
+					});
 
-				return (
-					"|" + "`" + evaluation.calculator.simulator.options.petal.petal.sid + "`" +
-					"|" + "`" + toRaritySID(evaluation.calculator.simulator.options.petal.rarity) + "`" +
+					note = Object.entries(petalCountsEachPetal)
+						.map(([petalSID, counts]) => {
+							const countsText = Object.entries(counts)
+								.map(([raritySID, count]) => {
+									if (count <= 0) return "";
+									if (raritySID === "none") return `${count}x \`${petalSID}\``;
+									return `${count}x \`${raritySID}\` \`${petalSID}\``;
+								})
+								.filter((_) => _)
+								.join(", ");
+							return `with ${countsText}`;
+						})
+						.filter((_) => _)
+						.join(", ");
+				}
+
+				baseEvaluationText += (
+					"|" + "`" + evaluation.sid + "`" +
+					"|" + "`" + rarity.rarity + "`" +
 					"|" + note +
-					"|" + evaluation.evaluation.score.toFixed(1) +
-					"|" + Math.round(evaluation.evaluation.damagePerSecondOnOneMOB) +
-					"|" + ((evaluation.evaluation.damagePerSecondOnOneMOB !== evaluation.evaluation.damagePerSecondOnArea) ? Math.round(evaluation.evaluation.damagePerSecondOnArea) : "-") +
-					"|"
+					"|" + rarity.score.toFixed(1) +
+					"|" + Math.round(rarity.damagePerSecondOnOneMOB) +
+					"|" + ((rarity.damagePerSecondOnOneMOB !== rarity.damagePerSecondOnArea) ? Math.round(rarity.damagePerSecondOnArea) : "-") +
+					"|" +
+					"\n"
 				);
-			}).join("\n");
-		baseEvaluationText += "\n";
-
-		const multipliedPetalSIDs = ["beetle_egg", "ant_egg", "moon", "wax"];
-		const ultraGoldenLeafReloadPerc = (() => {
-			const petalGoldenLeaf = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "golden_leaf")!;
-			const _ = petalGoldenLeaf.rarities[toRarityIndex("ultra")]!;
-			return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ReloadPerc") || [])[1] || 0;
-		})();
+			});
+		});
 
 		let additionalEvaluationText = `## Additional Evaluation\n`;
-		additionalEvaluationText += `The scores of petals such as ${((_) => {
-			return _.length > 1 ? `${_.slice(0, -1).join(", ")} and ${_.slice(-1)}` : _[0] || ""
-		})(multipliedPetalSIDs.map((_) => `\`${_}\``))} are multiplied according to the table below.\n`;
-		additionalEvaluationText += `|Petal|Multiplier|\n|:-:|:-:|\n`;
-		for (let n = 1; n <= 9; n++) {
-			const multiplier = 1 / Math.pow(1 - ultraGoldenLeafReloadPerc, n);
-			additionalEvaluationText += `|${n}x \`ultra\` \`golden_leaf\`|${multiplier.toFixed(1)}x|\n`;
+		{
+			additionalEvaluationText += `The scores of petals such as `;
+			additionalEvaluationText += ((_) => {
+				return _.length > 1 ? `${_.slice(0, -1).join(", ")} and ${_.slice(-1)}` : _[0] || ""
+			})(MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF.map((_) => `\`${_}\``));
+			additionalEvaluationText += ` are multiplied according to the table below.\n`;
 		}
+		additionalEvaluationText += `|Petal|Multiplier|\n|:-:|:-:|\n`;
+		json.evaluations.forEach((evaluation) => {
+			if (evaluation.type !== "additional") return;
+			evaluation.rarities.forEach((rarity) => {
+				additionalEvaluationText += (
+					"|" + evaluation.amount + "x" + " " + "`" + rarity.rarity + "`" + " " + "`" + evaluation.sid + "`" +
+					"|" + rarity.multiplier.toFixed(1) + "x" +
+					"|" +
+					"\n"
+				);
+			});
+		});
 
 		return `${header}\n${baseEvaluationText}\n${additionalEvaluationText}`;
 	}

@@ -68,10 +68,12 @@ import PetalEvaluationIndicator from "./PetalEvaluator/PetalEvaluationIndicator"
 		const evaluator = new Zone(gameClient);
 		const indicator = new PetalEvaluationIndicator(gameClient, evaluator);
 
-		const markdownPath = path.join(zoneDirPath, `${evaluator.name}.md`);
-		fs.writeFileSync(markdownPath, indicator.toMarkdown(), { encoding: "utf-8" });
-
 		const jsonPath = path.join(zoneDirPath, `${evaluator.name}.json`);
-		fs.writeFileSync(jsonPath, JSON.stringify(indicator.toJSON(), null, "\t"), { encoding: "utf-8" });
+		const jsonContent = indicator.toJSON();
+		fs.writeFileSync(jsonPath, JSON.stringify(jsonContent, null, "\t"), { encoding: "utf-8" });
+
+		const markdownPath = path.join(zoneDirPath, `${evaluator.name}.md`);
+		const markdownContent = indicator.toMarkdown(jsonContent);
+		fs.writeFileSync(markdownPath, markdownContent, { encoding: "utf-8" });
 	});
 })();

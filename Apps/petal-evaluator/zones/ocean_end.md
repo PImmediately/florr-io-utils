@@ -39,14 +39,14 @@
 |`dahlia`|`super`||0.2|8165|-|
 |`dandelion`|`super`||0.3|13997|-|
 |`dice`|`super`||2.6|109681|-|
-|`dice`|`super`|with `ultra` `clover`|3.2|137441|-|
-|`dice`|`super`|with `super` `clover`|3.3|141407|-|
+|`dice`|`super`|with 1x `ultra` `clover`|3.2|137441|-|
+|`dice`|`super`|with 1x `super` `clover`|3.3|141407|-|
 |`disc`|`super`||0.0|0|-|
 |`domino`|`super`||1.2|52503|-|
 |`fangs`|`super`||0.7|27926|-|
 |`faster`|`super`||0.4|17107|-|
 |`glass`|`super`||1.2|22555|50750|
-|`glass`|`super`|with `third_eye`|1.2|22555|50750|
+|`glass`|`super`|with 1x `third_eye`|1.2|22555|50750|
 |`golden_leaf`|`super`||0.9|37131|-|
 |`grapes`|`super`||0.3|49875|-|
 |`heavy`|`super`||1.1|45840|-|
