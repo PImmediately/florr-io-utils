@@ -1,0 +1,1748 @@
+{
+	"name": "fire_ant_hell",
+	"evaluations": [
+		{
+			"type": "base",
+			"sid": "air",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "amulet",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "ankh",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "ant_egg",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.9309412781138984,
+					"damagePerSecondOnOneMOB": 125921.05315118138,
+					"damagePerSecondOnArea": 125921.05315118138
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "antennae",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "bandage",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "basic",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "basil",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "battery",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.6289491651666563,
+					"damagePerSecondOnOneMOB": 17496,
+					"damagePerSecondOnArea": 69984
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "beetle_egg",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.8520735981350027,
+					"damagePerSecondOnOneMOB": 122532.68730547474,
+					"damagePerSecondOnArea": 122532.68730547474
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "blood_stinger",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.4063326298802061,
+					"damagePerSecondOnOneMOB": 60419.799999999996,
+					"damagePerSecondOnArea": 60419.799999999996
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "bone",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.5000000000000002,
+					"damagePerSecondOnOneMOB": 64444.00000000001,
+					"damagePerSecondOnArea": 64444.00000000001
+				},
+				{
+					"rarity": "unique",
+					"score": 25.95939420271864,
+					"damagePerSecondOnOneMOB": 743523.2,
+					"damagePerSecondOnArea": 743523.2
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "bubble",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "bulb",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 13802.666666666668,
+					"damagePerSecondOnArea": 13802.666666666668
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "bur",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.16063559059027996,
+					"damagePerSecondOnOneMOB": 6901.333333333334,
+					"damagePerSecondOnArea": 6901.333333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "cactus",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.48190677177083985,
+					"damagePerSecondOnOneMOB": 20704,
+					"damagePerSecondOnArea": 20704
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "card",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.6398776457079014,
+					"damagePerSecondOnOneMOB": 70453.51666666666,
+					"damagePerSecondOnArea": 70453.51666666666
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "carrot",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.16515889764756997,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "chip",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.0682266774253617,
+					"damagePerSecondOnOneMOB": 45893.86666666667,
+					"damagePerSecondOnArea": 45893.86666666667
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "claw",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.20882626776736393,
+					"damagePerSecondOnOneMOB": 8971.733333333334,
+					"damagePerSecondOnArea": 8971.733333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "clover",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "cog",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.864254236236112,
+					"damagePerSecondOnOneMOB": 37130.666666666664,
+					"damagePerSecondOnArea": 37130.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "coin",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1,
+					"damagePerSecondOnOneMOB": 42962.666666666664,
+					"damagePerSecondOnArea": 42962.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "compass",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 6255.599999999999,
+					"damagePerSecondOnArea": 6255.599999999999
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "coral",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.092762708708336,
+					"damagePerSecondOnOneMOB": 46948,
+					"damagePerSecondOnArea": 46948
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "corn",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.7710073862578362,
+					"damagePerSecondOnOneMOB": 50724.799999999996,
+					"damagePerSecondOnArea": 50724.799999999996
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "corruption",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "cotton",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "crown",
+			"rarities": [
+				{
+					"rarity": "unique",
+					"score": 22.60625951929642,
+					"damagePerSecondOnOneMOB": 971225.1923076923,
+					"damagePerSecondOnArea": 971225.1923076923
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "cutter",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "dahlia",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.19005648314815968,
+					"damagePerSecondOnOneMOB": 8165.333333333334,
+					"damagePerSecondOnArea": 8165.333333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "dandelion",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.3258022469120477,
+					"damagePerSecondOnOneMOB": 13997.333333333332,
+					"damagePerSecondOnArea": 13997.333333333332
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "dice",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.5529315374588806,
+					"damagePerSecondOnOneMOB": 109680.74666666673,
+					"damagePerSecondOnArea": 109680.74666666673
+				},
+				{
+					"rarity": "super",
+					"score": 3.199081361971117,
+					"damagePerSecondOnOneMOB": 137441.0661939111,
+					"damagePerSecondOnArea": 137441.0661939111,
+					"withPetals": [
+						{
+							"sid": "clover",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 3.291388503338298,
+					"damagePerSecondOnOneMOB": 141406.82713942218,
+					"damagePerSecondOnArea": 141406.82713942218,
+					"withPetals": [
+						{
+							"sid": "clover",
+							"rarity": "super"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "disc",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "domino",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.2220633418161506,
+					"damagePerSecondOnOneMOB": 52503.100000000006,
+					"damagePerSecondOnArea": 52503.100000000006
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "fangs",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.65,
+					"damagePerSecondOnOneMOB": 27925.733333333334,
+					"damagePerSecondOnArea": 27925.733333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "faster",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.39819067717708395,
+					"damagePerSecondOnOneMOB": 17107.333333333332,
+					"damagePerSecondOnArea": 17107.333333333332
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "glass",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.1812500000000001,
+					"damagePerSecondOnOneMOB": 22555.4,
+					"damagePerSecondOnArea": 50749.65
+				},
+				{
+					"rarity": "super",
+					"score": 1.7718749999999999,
+					"damagePerSecondOnOneMOB": 22555.4,
+					"damagePerSecondOnArea": 76124.47499999999,
+					"withPetals": [
+						{
+							"sid": "third_eye",
+							"rarity": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "golden_leaf",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.864254236236112,
+					"damagePerSecondOnOneMOB": 37130.666666666664,
+					"damagePerSecondOnArea": 37130.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "grapes",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.29022197833584196,
+					"damagePerSecondOnOneMOB": 49874.84045833333,
+					"damagePerSecondOnArea": 49874.84045833333
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "heavy",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.9561169387375088,
+					"damagePerSecondOnOneMOB": 56026.666666666664,
+					"damagePerSecondOnArea": 56026.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "honey",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "iris",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.2577026255353485,
+					"damagePerSecondOnOneMOB": 96996.92533333333,
+					"damagePerSecondOnArea": 96996.92533333333
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "jelly",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.9728601576562594,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "laser",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 3.4818788405437284,
+					"damagePerSecondOnOneMOB": 33242.399999999994,
+					"damagePerSecondOnArea": 99727.20000000001
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "leaf",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.864254236236112,
+					"damagePerSecondOnOneMOB": 37130.666666666664,
+					"damagePerSecondOnArea": 37130.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "light",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.8552318619169357,
+					"damagePerSecondOnOneMOB": 36743.04140625,
+					"damagePerSecondOnArea": 36743.04140625
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "lightning",
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"score": 0.5429830550555521,
+					"damagePerSecondOnOneMOB": 5832,
+					"damagePerSecondOnArea": 23328
+				},
+				{
+					"rarity": "super",
+					"score": 1.6289491651666563,
+					"damagePerSecondOnOneMOB": 17496,
+					"damagePerSecondOnArea": 69984
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "lotus",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "magic_stick",
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				},
+				{
+					"rarity": "ultra",
+					"score": 0.810940092511724,
+					"damagePerSecondOnOneMOB": 34840.14888121703,
+					"damagePerSecondOnArea": 34840.14888121703,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 1.621880185023448,
+					"damagePerSecondOnOneMOB": 69680.29776243406,
+					"damagePerSecondOnArea": 69680.29776243406,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 2.4328202775351726,
+					"damagePerSecondOnOneMOB": 104520.4466436511,
+					"damagePerSecondOnArea": 104520.4466436511,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 3.243760370046896,
+					"damagePerSecondOnOneMOB": 139360.5955248681,
+					"damagePerSecondOnArea": 139360.5955248681,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 4.05470046255862,
+					"damagePerSecondOnOneMOB": 174200.74440608514,
+					"damagePerSecondOnArea": 174200.74440608514,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 4.865640555070345,
+					"damagePerSecondOnOneMOB": 209040.8932873022,
+					"damagePerSecondOnArea": 209040.8932873022,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 5.676580647582068,
+					"damagePerSecondOnOneMOB": 243881.0421685192,
+					"damagePerSecondOnArea": 243881.0421685192,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				},
+				{
+					"rarity": "super",
+					"score": 3.5564543620472135,
+					"damagePerSecondOnOneMOB": 152794.76327184707,
+					"damagePerSecondOnArea": 152794.76327184707,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 7.112908724094427,
+					"damagePerSecondOnOneMOB": 305589.52654369414,
+					"damagePerSecondOnArea": 305589.52654369414,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 10.66936308614164,
+					"damagePerSecondOnOneMOB": 458384.28981554124,
+					"damagePerSecondOnArea": 458384.28981554124,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 14.225817448188854,
+					"damagePerSecondOnOneMOB": 611179.0530873883,
+					"damagePerSecondOnArea": 611179.0530873883,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 17.782271810236068,
+					"damagePerSecondOnOneMOB": 763973.8163592354,
+					"damagePerSecondOnArea": 763973.8163592354,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 21.33872617228328,
+					"damagePerSecondOnOneMOB": 916768.5796310825,
+					"damagePerSecondOnArea": 916768.5796310825,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 24.895180534330493,
+					"damagePerSecondOnOneMOB": 1069563.3429029295,
+					"damagePerSecondOnArea": 1069563.3429029295,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "magnet",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 5239.733333333334,
+					"damagePerSecondOnArea": 5239.733333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "mark",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "mecha_antennae",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "mecha_missile",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.20984110235243003,
+					"damagePerSecondOnOneMOB": 36061.333333333336,
+					"damagePerSecondOnArea": 36061.333333333336
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "mimic",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "missile",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.20984110235243003,
+					"damagePerSecondOnOneMOB": 36061.333333333336,
+					"damagePerSecondOnArea": 36061.333333333336
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "mjolnir",
+			"rarities": [
+				{
+					"rarity": "unique",
+					"score": 25.197807398671713,
+					"damagePerSecondOnOneMOB": 721710,
+					"damagePerSecondOnArea": 721710
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "monstera",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "moon",
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"score": 1.9520681791263823,
+					"damagePerSecondOnOneMOB": 9751.866801210897,
+					"damagePerSecondOnArea": 9751.866801210897
+				},
+				{
+					"rarity": "super",
+					"score": 14.673459856788368,
+					"damagePerSecondOnOneMOB": 73303.60054347826,
+					"damagePerSecondOnArea": 73303.60054347826
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "nazar",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "orange",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6081497113773199,
+					"damagePerSecondOnOneMOB": 26127.733333333334,
+					"damagePerSecondOnArea": 26127.733333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "orb",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "pearl",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.5,
+					"damagePerSecondOnOneMOB": 85925.33333333333,
+					"damagePerSecondOnArea": 85925.33333333333
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "peas",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.108031779529514,
+					"damagePerSecondOnOneMOB": 18565.333333333332,
+					"damagePerSecondOnArea": 18565.333333333332
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "pincer",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.6337049221029112,
+					"damagePerSecondOnOneMOB": 46792.21333333333,
+					"damagePerSecondOnArea": 46792.21333333333
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "plank",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 42574,
+					"damagePerSecondOnArea": 42574
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "pollen",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.20588417851157598,
+					"damagePerSecondOnOneMOB": 35381.333333333336,
+					"damagePerSecondOnArea": 35381.333333333336
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "poo",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 6901.333333333334,
+					"damagePerSecondOnArea": 6901.333333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "powder",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "privet",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "relic",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "rice",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.4877917261498355,
+					"damagePerSecondOnOneMOB": 20956.833333333332,
+					"damagePerSecondOnArea": 20956.833333333332
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "rock",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.7500000000000002,
+					"damagePerSecondOnOneMOB": 75184.66666666667,
+					"damagePerSecondOnArea": 75184.66666666667
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "root",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "rose",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.11244491341319596,
+					"damagePerSecondOnOneMOB": 4830.933333333333,
+					"damagePerSecondOnArea": 4830.933333333333
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "rubber",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 5239.733333333334,
+					"damagePerSecondOnArea": 5239.733333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "salt",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "sand",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.8031779529513996,
+					"damagePerSecondOnOneMOB": 34506.666666666664,
+					"damagePerSecondOnArea": 34506.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "shell",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.3855254174166719,
+					"damagePerSecondOnOneMOB": 16563.2,
+					"damagePerSecondOnArea": 16563.2
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "shovel",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "soil",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "sponge",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "square",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "starfish",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.3212711811805599,
+					"damagePerSecondOnOneMOB": 13802.666666666668,
+					"damagePerSecondOnArea": 13802.666666666668
+				},
+				{
+					"rarity": "unique",
+					"score": 1.975,
+					"damagePerSecondOnOneMOB": 84851.26666666666,
+					"damagePerSecondOnArea": 84851.26666666666
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "stick",
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"score": 0.321487665006683,
+					"damagePerSecondOnOneMOB": 13811.96738912712,
+					"damagePerSecondOnArea": 13811.96738912712
+				},
+				{
+					"rarity": "super",
+					"score": 2.8149358002588096,
+					"damagePerSecondOnOneMOB": 120937.14847458582,
+					"damagePerSecondOnArea": 120937.14847458582
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "stinger",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.2054279684687481,
+					"damagePerSecondOnOneMOB": 51788.4,
+					"damagePerSecondOnArea": 51788.4
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "talisman",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "third_eye",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "tomato",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 2.5271398423437406,
+					"damagePerSecondOnOneMOB": 108572.66666666667,
+					"damagePerSecondOnArea": 108572.66666666667
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "totem",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "triangle",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "uranium",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "wax",
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"score": 0.7,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				},
+				{
+					"rarity": "super",
+					"score": 2.0999999999999996,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "web",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.6063559059027996,
+					"damagePerSecondOnOneMOB": 6901.333333333334,
+					"damagePerSecondOnArea": 6901.333333333334
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "wing",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 1.6072372912916641,
+					"damagePerSecondOnOneMOB": 57542.666666666664,
+					"damagePerSecondOnArea": 57542.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "yggdrasil",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0,
+					"damagePerSecondOnOneMOB": 0,
+					"damagePerSecondOnArea": 0
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "yin_yang",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.6606355905902799,
+					"damagePerSecondOnOneMOB": 28382.666666666664,
+					"damagePerSecondOnArea": 28382.666666666664
+				}
+			]
+		},
+		{
+			"type": "base",
+			"sid": "yucca",
+			"rarities": [
+				{
+					"rarity": "super",
+					"score": 0.3212711811805599,
+					"damagePerSecondOnOneMOB": 13802.666666666668,
+					"damagePerSecondOnArea": 13802.666666666668
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 1,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 1.2376500134297719
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 2,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 1.5317775557427147
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 3,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 1.895804512436394
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 4,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 2.3463424802771256
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 5,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 2.9039508022258285
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 6,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 3.594074749374194
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 7,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 4.448206661830575
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 8,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 5.5053230347530135
+				}
+			]
+		},
+		{
+			"type": "additional",
+			"sid": "golden_leaf",
+			"amount": 9,
+			"targetPetals": [
+				"beetle_egg",
+				"ant_egg",
+				"moon",
+				"wax"
+			],
+			"rarities": [
+				{
+					"rarity": "ultra",
+					"multiplier": 6.813663127897299
+				}
+			]
+		}
+	]
+}

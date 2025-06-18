@@ -66,12 +66,12 @@ import PetalEvaluationIndicator from "./PetalEvaluator/PetalEvaluationIndicator"
 
 	zones.forEach((Zone) => {
 		const evaluator = new Zone(gameClient);
-		const evaluations = evaluator.evaluate();
+		const indicator = new PetalEvaluationIndicator(gameClient, evaluator);
 
-		const indicator = new PetalEvaluationIndicator(gameClient, evaluations);
-		const content = indicator.toMarkdown();
+		const markdownPath = path.join(zoneDirPath, `${evaluator.name}.md`);
+		fs.writeFileSync(markdownPath, indicator.toMarkdown(), { encoding: "utf-8" });
 
-		const filePath = path.join(zoneDirPath, `${evaluator.name}.md`);
-		fs.writeFileSync(filePath, content, { encoding: "utf-8" });
+		const jsonPath = path.join(zoneDirPath, `${evaluator.name}.json`);
+		fs.writeFileSync(jsonPath, JSON.stringify(indicator.toJSON(), null, "\t"), { encoding: "utf-8" });
 	});
 })();
