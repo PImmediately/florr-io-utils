@@ -8,8 +8,8 @@ export default class PetalEvaluationIndicator {
 	public constructor(public readonly gameClient: GameClient, public readonly evaluations: PetalEvaluatorEvaluation[]) {
 	}
 
-	public toMarkdown() {
-		const evaluations = this.evaluations.filter((evaluation) => {
+	private getEvaluations() {
+		return this.evaluations.filter((evaluation) => {
 			const petal = this.gameClient.florrio.utils.getPetals().find((petal) => (petal.id === evaluation.calculator.simulator.options.petal.petal.id))!;
 			if ((petal.magicPetal) && (!["magic_stick"].includes(petal.sid))) return false;
 
@@ -50,6 +50,10 @@ export default class PetalEvaluationIndicator {
 
 			return true;
 		});
+	}
+
+	public toMarkdown() {
+		const evaluations = this.getEvaluations();
 
 		const header = `# Evaluation\n- [Base Evaluation](#base-evaluation)\n- [Additional Evaluation](#additional-evaluation)\n`;
 
@@ -98,6 +102,7 @@ export default class PetalEvaluationIndicator {
 			const multiplier = 1 / Math.pow(1 - ultraGoldenLeafReloadPerc, n);
 			additionalEvaluationText += `|${n}x \`ultra\` \`golden_leaf\`|${multiplier.toFixed(1)}x|\n`;
 		}
+
 		return `${header}\n${baseEvaluationText}\n${additionalEvaluationText}`;
 	}
 
