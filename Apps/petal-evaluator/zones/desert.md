@@ -67,6 +67,13 @@
 |`magic_stick`|`ultra`|with 5x `ultra` `magic_leaf`|6.1|132110|-|
 |`magic_stick`|`ultra`|with 6x `ultra` `magic_leaf`|7.4|158532|-|
 |`magic_stick`|`ultra`|with 7x `ultra` `magic_leaf`|8.6|184954|-|
+|`magic_stick`|`ultra`|with 6x `ultra` `magic_leaf`, 1x `super` `magic_leaf`|9.8|211376|-|
+|`magic_stick`|`ultra`|with 5x `ultra` `magic_leaf`, 2x `super` `magic_leaf`|11.1|237797|-|
+|`magic_stick`|`ultra`|with 4x `ultra` `magic_leaf`, 3x `super` `magic_leaf`|12.3|264219|-|
+|`magic_stick`|`ultra`|with 3x `ultra` `magic_leaf`, 4x `super` `magic_leaf`|13.5|290641|-|
+|`magic_stick`|`ultra`|with 2x `ultra` `magic_leaf`, 5x `super` `magic_leaf`|14.8|317063|-|
+|`magic_stick`|`ultra`|with 1x `ultra` `magic_leaf`, 6x `super` `magic_leaf`|16.0|343485|-|
+|`magic_stick`|`ultra`|with 7x `super` `magic_leaf`|17.2|369907|-|
 |`magic_stick`|`super`||0.0|0|-|
 |`magic_stick`|`super`|with 1x `ultra` `magic_leaf`|6.6|141392|-|
 |`magic_stick`|`super`|with 2x `ultra` `magic_leaf`|13.2|282784|-|
@@ -75,6 +82,13 @@
 |`magic_stick`|`super`|with 5x `ultra` `magic_leaf`|32.9|706961|-|
 |`magic_stick`|`super`|with 6x `ultra` `magic_leaf`|39.5|848353|-|
 |`magic_stick`|`super`|with 7x `ultra` `magic_leaf`|46.1|989745|-|
+|`magic_stick`|`super`|with 6x `ultra` `magic_leaf`, 1x `super` `magic_leaf`|52.7|1131137|-|
+|`magic_stick`|`super`|with 5x `ultra` `magic_leaf`, 2x `super` `magic_leaf`|59.2|1272530|-|
+|`magic_stick`|`super`|with 4x `ultra` `magic_leaf`, 3x `super` `magic_leaf`|65.8|1413922|-|
+|`magic_stick`|`super`|with 3x `ultra` `magic_leaf`, 4x `super` `magic_leaf`|72.4|1555314|-|
+|`magic_stick`|`super`|with 2x `ultra` `magic_leaf`, 5x `super` `magic_leaf`|79.0|1696706|-|
+|`magic_stick`|`super`|with 1x `ultra` `magic_leaf`, 6x `super` `magic_leaf`|85.6|1838098|-|
+|`magic_stick`|`super`|with 7x `super` `magic_leaf`|92.1|1979490|-|
 |`magnet`|`super`||0.0|3208|-|
 |`mark`|`super`||0.0|0|-|
 |`mecha_antennae`|`super`||0.0|0|-|

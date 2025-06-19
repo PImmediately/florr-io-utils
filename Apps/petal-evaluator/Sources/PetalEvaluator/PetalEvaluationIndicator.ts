@@ -156,6 +156,15 @@ export default class PetalEvaluationIndicator {
 						});
 					}
 				}
+				if (typeof evaluation.calculator.simulator.options.userdata?.superMagicLeafCount === "number") {
+					if (!rarity.withPetals) rarity.withPetals = [];
+					for (let n = 0; n < evaluation.calculator.simulator.options.userdata.superMagicLeafCount; n++) {
+						rarity.withPetals.push({
+							sid: "magic_leaf",
+							rarity: "super"
+						});
+					}
+				}
 
 				baseEvaluationsEachPetal[petalSID].push(rarity);
 			});

@@ -816,6 +816,258 @@
 					]
 				},
 				{
+					"rarity": "ultra",
+					"score": 6.544740357326979,
+					"damagePerSecondOnOneMOB": 421769.2475875799,
+					"damagePerSecondOnArea": 421769.2475875799,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 7.362832901992852,
+					"damagePerSecondOnOneMOB": 474490.4035360274,
+					"damagePerSecondOnArea": 474490.4035360274,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 8.180925446658723,
+					"damagePerSecondOnOneMOB": 527211.5594844748,
+					"damagePerSecondOnArea": 527211.5594844748,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 8.999017991324596,
+					"damagePerSecondOnOneMOB": 579932.7154329224,
+					"damagePerSecondOnArea": 579932.7154329224,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 9.81711053599047,
+					"damagePerSecondOnOneMOB": 632653.8713813699,
+					"damagePerSecondOnArea": 632653.8713813699,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 10.635203080656341,
+					"damagePerSecondOnOneMOB": 685375.0273298173,
+					"damagePerSecondOnArea": 685375.0273298173,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "ultra",
+					"score": 11.453295625322214,
+					"damagePerSecondOnOneMOB": 738096.1832782648,
+					"damagePerSecondOnArea": 738096.1832782648,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
 					"rarity": "super",
 					"score": 0,
 					"damagePerSecondOnOneMOB": 0,
@@ -986,6 +1238,258 @@
 						{
 							"sid": "magic_leaf",
 							"rarity": "ultra"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 20.631594895618917,
+					"damagePerSecondOnOneMOB": 1329582.5014532658,
+					"damagePerSecondOnArea": 1329582.5014532658,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 23.210544257571282,
+					"damagePerSecondOnOneMOB": 1495780.314134924,
+					"damagePerSecondOnArea": 1495780.314134924,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 25.789493619523647,
+					"damagePerSecondOnOneMOB": 1661978.1268165822,
+					"damagePerSecondOnArea": 1661978.1268165822,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 28.36844298147601,
+					"damagePerSecondOnOneMOB": 1828175.9394982404,
+					"damagePerSecondOnArea": 1828175.9394982404,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 30.947392343428376,
+					"damagePerSecondOnOneMOB": 1994373.7521798986,
+					"damagePerSecondOnArea": 1994373.7521798986,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 33.526341705380744,
+					"damagePerSecondOnOneMOB": 2160571.564861557,
+					"damagePerSecondOnArea": 2160571.564861557,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "ultra"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						}
+					]
+				},
+				{
+					"rarity": "super",
+					"score": 36.10529106733311,
+					"damagePerSecondOnOneMOB": 2326769.377543215,
+					"damagePerSecondOnArea": 2326769.377543215,
+					"withPetals": [
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
+						},
+						{
+							"sid": "magic_leaf",
+							"rarity": "super"
 						}
 					]
 				}

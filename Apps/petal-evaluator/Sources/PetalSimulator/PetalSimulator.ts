@@ -17,6 +17,7 @@ import { cloneDeep } from "lodash";
 export interface PetalSimulatorOptionsUserdata {
 	cloverRarity?: number;
 	ultraMagicLeafCount?: number;
+	superMagicLeafCount?: number;
 }
 
 export interface PetalSimulatorOptions<Userdata = {}> {

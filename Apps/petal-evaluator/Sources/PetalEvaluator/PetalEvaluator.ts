@@ -205,11 +205,17 @@ export default class PetalEvaluator {
 					});
 					calculators.push(calculator);
 				} else if (petal.sid === "magic_stick") { // for magic_stick
-					const _ = petalMagicLeaf.rarities[toRarityIndex("ultra")]!;
-					const manaPerSecond = (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
+					const ultraManaPerSecond = (() => {
+						const _ = petalMagicLeaf.rarities[toRarityIndex("ultra")]!;
+						return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
+					})();
+					const superManaPerSecond = (() => {
+						const _ = petalMagicLeaf.rarities[toRarityIndex("super")]!;
+						return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
+					})();
 
-					for (let n = 1; n <= 7; n++) {
-						const flowerManaPerSecond = manaPerSecond * n;
+					for (let ultraMagicLeafCount = 1; ultraMagicLeafCount <= 7; ultraMagicLeafCount++) {
+						const flowerManaPerSecond = ultraManaPerSecond * ultraMagicLeafCount;
 						const simulator = new PetalSimulator(this.gameClient, {
 							mob: mobEntity,
 							petal: petalEntity,
@@ -218,7 +224,29 @@ export default class PetalEvaluator {
 								manaPerSecond: flowerManaPerSecond
 							},
 							userdata: {
-								ultraMagicLeafCount: n
+								ultraMagicLeafCount
+							}
+						});
+						const calculator = new PetalDPSCalculator(simulator, {
+							area: this.options.state.area
+						});
+						calculators.push(calculator);
+					}
+
+					for (let superMagicLeafCount = 1; superMagicLeafCount <= 7; superMagicLeafCount++) {
+						const ultraMagicLeafCount = 7 - superMagicLeafCount;
+
+						const flowerManaPerSecond = ultraManaPerSecond * ultraMagicLeafCount + superManaPerSecond * superMagicLeafCount;
+						const simulator = new PetalSimulator(this.gameClient, {
+							mob: mobEntity,
+							petal: petalEntity,
+							flower: {
+								...this.options.state.flower,
+								manaPerSecond: flowerManaPerSecond
+							},
+							userdata: {
+								ultraMagicLeafCount,
+								superMagicLeafCount
 							}
 						});
 						const calculator = new PetalDPSCalculator(simulator, {
