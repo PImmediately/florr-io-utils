@@ -409,7 +409,8 @@
 					"dependencePetals": [
 						{
 							"sid": "clover",
-							"rarity": "ultra"
+							"rarity": "ultra",
+							"per": false
 						}
 					]
 				},
@@ -421,7 +422,8 @@
 					"dependencePetals": [
 						{
 							"sid": "clover",
-							"rarity": "super"
+							"rarity": "super",
+							"per": false
 						}
 					]
 				}
@@ -493,7 +495,8 @@
 					"dependencePetals": [
 						{
 							"sid": "third_eye",
-							"rarity": null
+							"rarity": null,
+							"per": false
 						}
 					]
 				}
@@ -655,7 +658,8 @@
 					"dependencePetals": [
 						{
 							"sid": "orb",
-							"rarity": "ultra"
+							"rarity": "ultra",
+							"per": true
 						}
 					]
 				},
@@ -667,7 +671,8 @@
 					"dependencePetals": [
 						{
 							"sid": "orb",
-							"rarity": "super"
+							"rarity": "super",
+							"per": true
 						}
 					]
 				},
@@ -679,7 +684,8 @@
 					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
-							"rarity": "ultra"
+							"rarity": "ultra",
+							"per": true
 						}
 					]
 				},
@@ -691,7 +697,8 @@
 					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
-							"rarity": "super"
+							"rarity": "super",
+							"per": true
 						}
 					]
 				},
@@ -709,7 +716,8 @@
 					"dependencePetals": [
 						{
 							"sid": "orb",
-							"rarity": "ultra"
+							"rarity": "ultra",
+							"per": true
 						}
 					]
 				},
@@ -721,7 +729,8 @@
 					"dependencePetals": [
 						{
 							"sid": "orb",
-							"rarity": "super"
+							"rarity": "super",
+							"per": true
 						}
 					]
 				},
@@ -733,7 +742,8 @@
 					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
-							"rarity": "ultra"
+							"rarity": "ultra",
+							"per": true
 						}
 					]
 				},
@@ -745,7 +755,8 @@
 					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
-							"rarity": "super"
+							"rarity": "super",
+							"per": true
 						}
 					]
 				}

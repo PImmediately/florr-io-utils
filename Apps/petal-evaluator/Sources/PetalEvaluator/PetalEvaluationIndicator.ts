@@ -27,6 +27,7 @@ export interface RawPetalBaseEvaluationRarity {
 export interface RawPetalBaseEvaluationRarityDependencePetal {
 	sid: string;
 	rarity: RaritySID | null;
+	per: boolean;
 }
 
 export interface RawPetalAdditionalEvaluation {
@@ -132,7 +133,8 @@ export default class PetalEvaluationIndicator {
 					if (!rarity.dependencePetals) rarity.dependencePetals = [];
 					rarity.dependencePetals.push({
 						sid: "clover",
-						rarity: toRaritySID(evaluation.calculator.simulator.options.userdata.cloverRarity)
+						rarity: toRaritySID(evaluation.calculator.simulator.options.userdata.cloverRarity),
+						per: false
 					});
 				}
 
@@ -143,7 +145,8 @@ export default class PetalEvaluationIndicator {
 					if (!rarity.dependencePetals) rarity.dependencePetals = [];
 					rarity.dependencePetals.push({
 						sid: "third_eye",
-						rarity: null
+						rarity: null,
+						per: false
 					});
 				}
 
@@ -154,7 +157,8 @@ export default class PetalEvaluationIndicator {
 					if (!rarity.dependencePetals) rarity.dependencePetals = [];
 					rarity.dependencePetals.push({
 						sid: evaluation.calculator.simulator.options.userdata.manaHealPetal,
-						rarity: evaluation.calculator.simulator.options.userdata.manaHealPetalRarity
+						rarity: evaluation.calculator.simulator.options.userdata.manaHealPetalRarity,
+						per: true
 					});
 				}
 
@@ -216,6 +220,8 @@ export default class PetalEvaluationIndicator {
 			evaluation.rarities.forEach((rarity) => {
 				let note = "";
 				if (rarity.dependencePetals) {
+					let per = false;
+
 					const petalCountsEachPetal: Record<string, Record<RaritySID | "none", number>> = {};
 					rarity.dependencePetals.forEach((petal) => {
 						if (!petalCountsEachPetal[petal.sid]) {
@@ -231,6 +237,10 @@ export default class PetalEvaluationIndicator {
 						} else {
 							petalCountsEachPetal[petal.sid]!["none"]! += 1;
 						}
+
+						if (petal.per) {
+							per = true;
+						}
 					});
 
 					note = Object.entries(petalCountsEachPetal)
@@ -243,7 +253,10 @@ export default class PetalEvaluationIndicator {
 								})
 								.filter((_) => _)
 								.join(", ");
-							return `with ${countsText}`;
+							return (
+								((!per) ? "with" : "per") + " " +
+								countsText
+							);
 						})
 						.filter((_) => _)
 						.join(", ");
