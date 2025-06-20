@@ -1,4 +1,4 @@
-import { findTranslation, toRarityIndex } from "./../GameTypes";
+import { findTranslation, toRarityIndex, toRaritySID } from "./../GameTypes";
 import type GameClient from "./../GameClient";
 
 import EntityMOB from "./../PetalSimulator/Entity/EntityMOB";
@@ -155,7 +155,6 @@ export default class PetalEvaluator {
 		const mobEntity = new EntityMOB(mob, this.options.mob.rarity);
 
 		const petalClover = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "clover")!;
-		const petalMagicLeaf = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === "magic_leaf")!;
 
 		const calculators = new Array<PetalDPSCalculator>();
 		this.gameClient.florrio.utils.getPetals().forEach((petal) => {
@@ -205,55 +204,34 @@ export default class PetalEvaluator {
 					});
 					calculators.push(calculator);
 				} else if (petal.sid === "magic_stick") { // for magic_stick
-					const ultraManaPerSecond = (() => {
-						const _ = petalMagicLeaf.rarities[toRarityIndex("ultra")]!;
-						return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
-					})();
-					const superManaPerSecond = (() => {
-						const _ = petalMagicLeaf.rarities[toRarityIndex("super")]!;
-						return (findTranslation<[number]>(_.tooltip!, "Petal/Attribute/ManaPerSecond") || [])[1] || 0;
-					})();
+					["orb", "magic_leaf"].forEach((manaHealPetalSID) => {
+						const manaHealPetal = this.gameClient.florrio.utils.getPetals().find(petal => petal.sid === manaHealPetalSID)!;
+						for (let manaHealPetalRarity = toRarityIndex("ultra"); manaHealPetalRarity <= toRarityIndex("super"); manaHealPetalRarity++) {
+							const manaHealPetalEntity = new EntityPetal(manaHealPetal, manaHealPetalRarity);
+							const flowerManaPerSecond = new PetalSimulator(this.gameClient, {
+								mob: mobEntity, // dummy
+								petal: manaHealPetalEntity,
+								flower: this.options.state.flower
+							}).calcPetalManaPerSecond() || 0;
 
-					for (let ultraMagicLeafCount = 1; ultraMagicLeafCount <= 7; ultraMagicLeafCount++) {
-						const flowerManaPerSecond = ultraManaPerSecond * ultraMagicLeafCount;
-						const simulator = new PetalSimulator(this.gameClient, {
-							mob: mobEntity,
-							petal: petalEntity,
-							flower: {
-								...this.options.state.flower,
-								manaPerSecond: flowerManaPerSecond
-							},
-							userdata: {
-								ultraMagicLeafCount
-							}
-						});
-						const calculator = new PetalDPSCalculator(simulator, {
-							area: this.options.state.area
-						});
-						calculators.push(calculator);
-					}
-
-					for (let superMagicLeafCount = 1; superMagicLeafCount <= 7; superMagicLeafCount++) {
-						const ultraMagicLeafCount = 7 - superMagicLeafCount;
-
-						const flowerManaPerSecond = ultraManaPerSecond * ultraMagicLeafCount + superManaPerSecond * superMagicLeafCount;
-						const simulator = new PetalSimulator(this.gameClient, {
-							mob: mobEntity,
-							petal: petalEntity,
-							flower: {
-								...this.options.state.flower,
-								manaPerSecond: flowerManaPerSecond
-							},
-							userdata: {
-								ultraMagicLeafCount,
-								superMagicLeafCount
-							}
-						});
-						const calculator = new PetalDPSCalculator(simulator, {
-							area: this.options.state.area
-						});
-						calculators.push(calculator);
-					}
+							const simulator = new PetalSimulator(this.gameClient, {
+								mob: mobEntity,
+								petal: petalEntity,
+								flower: {
+									...this.options.state.flower,
+									manaPerSecond: flowerManaPerSecond
+								},
+								userdata: {
+									manaHealPetal: manaHealPetalSID,
+									manaHealPetalRarity: toRaritySID(manaHealPetalRarity)
+								}
+							});
+							const calculator = new PetalDPSCalculator(simulator, {
+								area: this.options.state.area
+							});
+							calculators.push(calculator);
+						}
+					});
 				}
 
 			});

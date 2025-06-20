@@ -147,23 +147,15 @@ export default class PetalEvaluationIndicator {
 					});
 				}
 
-				if (typeof evaluation.calculator.simulator.options.userdata?.ultraMagicLeafCount === "number") {
+				if (
+					(typeof evaluation.calculator.simulator.options.userdata?.manaHealPetal === "string") &&
+					(typeof evaluation.calculator.simulator.options.userdata?.manaHealPetalRarity === "string")
+				) {
 					if (!rarity.withPetals) rarity.withPetals = [];
-					for (let n = 0; n < evaluation.calculator.simulator.options.userdata.ultraMagicLeafCount; n++) {
-						rarity.withPetals.push({
-							sid: "magic_leaf",
-							rarity: "ultra"
-						});
-					}
-				}
-				if (typeof evaluation.calculator.simulator.options.userdata?.superMagicLeafCount === "number") {
-					if (!rarity.withPetals) rarity.withPetals = [];
-					for (let n = 0; n < evaluation.calculator.simulator.options.userdata.superMagicLeafCount; n++) {
-						rarity.withPetals.push({
-							sid: "magic_leaf",
-							rarity: "super"
-						});
-					}
+					rarity.withPetals.push({
+						sid: evaluation.calculator.simulator.options.userdata.manaHealPetal,
+						rarity: evaluation.calculator.simulator.options.userdata.manaHealPetalRarity
+					});
 				}
 
 				baseEvaluationsEachPetal[petalSID].push(rarity);

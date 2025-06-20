@@ -2,7 +2,7 @@ import type GameClient from "./../GameClient";
 
 import type EntityPetal from "./Entity/EntityPetal";
 import EntityMOB from "./Entity/EntityMOB";
-import { toRarityIndex } from "./../GameTypes";
+import { type RaritySID, toRarityIndex } from "./../GameTypes";
 
 import type { FlowerOptions } from "./../PetalEvaluator/PetalEvaluator";
 
@@ -16,8 +16,8 @@ import { cloneDeep } from "lodash";
 
 export interface PetalSimulatorOptionsUserdata {
 	cloverRarity?: number;
-	ultraMagicLeafCount?: number;
-	superMagicLeafCount?: number;
+	manaHealPetal?: string;
+	manaHealPetalRarity?: RaritySID;
 }
 
 export interface PetalSimulatorOptions<Userdata = {}> {
@@ -50,7 +50,7 @@ export default class PetalSimulator {
 	public simulate() {
 		const isPetalOnOrbit = this.isPetalOnOrbit();
 
-		const petalReloadTime = (this.getPetalReloadTime() || 0) * this.options.flower.talentReloadMultiplier;
+		const petalReloadTime = this.calcPetalReloadTime() || 0;
 		let petalReloaded = true;
 		let petalReloadTick = 0;
 		const petalActivationTime = this.getPetalActivationTime();
@@ -145,6 +145,12 @@ export default class PetalSimulator {
 		const contents = this.options.petal.getContents();
 		const spawn = this.options.petal.getSpawn();
 		return Boolean(contents) || Boolean(spawn);
+	}
+
+	private calcPetalReloadTime() {
+		const reloadTime = this.getPetalReloadTime();
+		if (typeof reloadTime !== "number") return undefined;
+		return reloadTime * this.options.flower.talentReloadMultiplier;
 	}
 
 	private calcPetalSummonCount(mobEntity: EntityMOB) {
@@ -305,6 +311,18 @@ export default class PetalSimulator {
 		if ((this.options.petal.petal.sid === "mjolnir") && (this.options.petal.rarity === toRarityIndex("unique"))) return 1;
 
 		return numCopies;
+	}
+
+	public calcPetalManaPerSecond() {
+		const petalManaPerSecond = this.options.petal.getManaPerSecond();
+		if (typeof petalManaPerSecond === "number") return petalManaPerSecond;
+
+		const petalMana = this.options.petal.getMana();
+		if (typeof petalMana !== "number") return undefined;
+
+		const petalReloadTime = this.calcPetalReloadTime() || 0;
+		const petalActivationTime = this.getPetalActivationTime() || 0;
+		return petalMana / ((petalReloadTime + petalActivationTime) / 1000);
 	}
 
 }

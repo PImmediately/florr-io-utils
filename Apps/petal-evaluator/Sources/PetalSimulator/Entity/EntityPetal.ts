@@ -128,4 +128,14 @@ export default class EntityPetal extends Entity {
 		return (findTranslation<[number, number]>(tooltip, "Petal/Attribute/Duration") || [])[1];
 	}
 
+	public getMana() {
+		const tooltip = this.getTooltip();
+		return (findTranslation<[number, number]>(tooltip, "Petal/Attribute/Mana") || [])[1];
+	}
+
+	public getManaPerSecond() {
+		const tooltip = this.getTooltip();
+		return (findTranslation<[number, number]>(tooltip, "Petal/Attribute/ManaPerSecond") || [])[1];
+	}
+
 }
