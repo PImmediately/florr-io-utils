@@ -1355,7 +1355,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 1,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1372,7 +1372,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 2,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1389,7 +1389,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 3,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1406,7 +1406,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 4,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1423,7 +1423,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 5,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1440,7 +1440,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 6,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1457,7 +1457,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 7,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1474,7 +1474,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 8,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -1491,7 +1491,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 9,
-			"dependencePetals": [
+			"targetPetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",

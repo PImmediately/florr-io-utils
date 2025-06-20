@@ -33,7 +33,7 @@ export interface RawPetalAdditionalEvaluation {
 	type: "additional";
 	sid: string;
 	amount: number;
-	dependencePetals: string[];
+	targetPetals: string[];
 	rarities: RawPetalAdditionalEvaluationRarity[];
 }
 
@@ -191,7 +191,7 @@ export default class PetalEvaluationIndicator {
 					type: "additional",
 					sid: "golden_leaf",
 					amount: n,
-					dependencePetals: MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF,
+					targetPetals: MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF,
 					rarities
 				});
 			}
