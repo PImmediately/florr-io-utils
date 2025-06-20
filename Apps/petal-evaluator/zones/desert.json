@@ -2099,7 +2099,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 1,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2108,7 +2108,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 1.2376500134297719
+					"scoreMultiplier": 1.2376500134297719
 				}
 			]
 		},
@@ -2116,7 +2116,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 2,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2125,7 +2125,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 1.5317775557427147
+					"scoreMultiplier": 1.5317775557427147
 				}
 			]
 		},
@@ -2133,7 +2133,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 3,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2142,7 +2142,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 1.895804512436394
+					"scoreMultiplier": 1.895804512436394
 				}
 			]
 		},
@@ -2150,7 +2150,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 4,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2159,7 +2159,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 2.3463424802771256
+					"scoreMultiplier": 2.3463424802771256
 				}
 			]
 		},
@@ -2167,7 +2167,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 5,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2176,7 +2176,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 2.9039508022258285
+					"scoreMultiplier": 2.9039508022258285
 				}
 			]
 		},
@@ -2184,7 +2184,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 6,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2193,7 +2193,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 3.594074749374194
+					"scoreMultiplier": 3.594074749374194
 				}
 			]
 		},
@@ -2201,7 +2201,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 7,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2210,7 +2210,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 4.448206661830575
+					"scoreMultiplier": 4.448206661830575
 				}
 			]
 		},
@@ -2218,7 +2218,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 8,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2227,7 +2227,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 5.5053230347530135
+					"scoreMultiplier": 5.5053230347530135
 				}
 			]
 		},
@@ -2235,7 +2235,7 @@
 			"type": "additional",
 			"sid": "golden_leaf",
 			"amount": 9,
-			"targetPetals": [
+			"dependencePetals": [
 				"beetle_egg",
 				"ant_egg",
 				"moon",
@@ -2244,7 +2244,7 @@
 			"rarities": [
 				{
 					"rarity": "ultra",
-					"multiplier": 6.813663127897299
+					"scoreMultiplier": 6.813663127897299
 				}
 			]
 		}

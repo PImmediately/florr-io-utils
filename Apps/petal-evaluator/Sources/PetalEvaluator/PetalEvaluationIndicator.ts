@@ -33,13 +33,13 @@ export interface RawPetalAdditionalEvaluation {
 	type: "additional";
 	sid: string;
 	amount: number;
-	targetPetals: string[];
+	dependencePetals: string[];
 	rarities: RawPetalAdditionalEvaluationRarity[];
 }
 
 export interface RawPetalAdditionalEvaluationRarity {
 	rarity: RaritySID;
-	multiplier: number;
+	scoreMultiplier: number;
 }
 
 export const MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF = ["beetle_egg", "ant_egg", "moon", "wax"];
@@ -191,7 +191,7 @@ export default class PetalEvaluationIndicator {
 
 					rarities.push({
 						rarity: toRaritySID(rarity),
-						multiplier
+						scoreMultiplier: multiplier
 					});
 				}
 
@@ -199,7 +199,7 @@ export default class PetalEvaluationIndicator {
 					type: "additional",
 					sid: "golden_leaf",
 					amount: n,
-					targetPetals: MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF,
+					dependencePetals: MULTIPLIED_EVALUATION_PETALS_WITH_GOLDEN_LEAF,
 					rarities
 				});
 			}
@@ -284,7 +284,7 @@ export default class PetalEvaluationIndicator {
 			evaluation.rarities.forEach((rarity) => {
 				additionalEvaluationText += (
 					"|" + evaluation.amount + "x" + " " + "`" + rarity.rarity + "`" + " " + "`" + evaluation.sid + "`" +
-					"|" + rarity.multiplier.toFixed(1) + "x" +
+					"|" + rarity.scoreMultiplier.toFixed(1) + "x" +
 					"|" +
 					"\n"
 				);
