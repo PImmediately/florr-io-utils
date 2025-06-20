@@ -21,10 +21,10 @@ export interface RawPetalBaseEvaluationRarity {
 	score: number;
 	damagePerSecondOnOneMOB: number;
 	damagePerSecondOnArea: number;
-	withPetals?: RawPetalBaseEvaluationRarityWithPetal[];
+	dependencePetals?: RawPetalBaseEvaluationRarityDependencePetal[];
 }
 
-export interface RawPetalBaseEvaluationRarityWithPetal {
+export interface RawPetalBaseEvaluationRarityDependencePetal {
 	sid: string;
 	rarity: RaritySID | null;
 }
@@ -129,8 +129,8 @@ export default class PetalEvaluationIndicator {
 				};
 
 				if (typeof evaluation.calculator.simulator.options.userdata?.cloverRarity === "number") {
-					if (!rarity.withPetals) rarity.withPetals = [];
-					rarity.withPetals.push({
+					if (!rarity.dependencePetals) rarity.dependencePetals = [];
+					rarity.dependencePetals.push({
 						sid: "clover",
 						rarity: toRaritySID(evaluation.calculator.simulator.options.userdata.cloverRarity)
 					});
@@ -140,8 +140,8 @@ export default class PetalEvaluationIndicator {
 					(typeof evaluation.calculator.simulator.options.flower.hasThirdEye === "boolean") &&
 					(evaluation.calculator.simulator.options.flower.hasThirdEye)
 				) {
-					if (!rarity.withPetals) rarity.withPetals = [];
-					rarity.withPetals.push({
+					if (!rarity.dependencePetals) rarity.dependencePetals = [];
+					rarity.dependencePetals.push({
 						sid: "third_eye",
 						rarity: null
 					});
@@ -151,8 +151,8 @@ export default class PetalEvaluationIndicator {
 					(typeof evaluation.calculator.simulator.options.userdata?.manaHealPetal === "string") &&
 					(typeof evaluation.calculator.simulator.options.userdata?.manaHealPetalRarity === "string")
 				) {
-					if (!rarity.withPetals) rarity.withPetals = [];
-					rarity.withPetals.push({
+					if (!rarity.dependencePetals) rarity.dependencePetals = [];
+					rarity.dependencePetals.push({
 						sid: evaluation.calculator.simulator.options.userdata.manaHealPetal,
 						rarity: evaluation.calculator.simulator.options.userdata.manaHealPetalRarity
 					});
@@ -215,9 +215,9 @@ export default class PetalEvaluationIndicator {
 			if (evaluation.type !== "base") return;
 			evaluation.rarities.forEach((rarity) => {
 				let note = "";
-				if (rarity.withPetals) {
+				if (rarity.dependencePetals) {
 					const petalCountsEachPetal: Record<string, Record<RaritySID | "none", number>> = {};
-					rarity.withPetals.forEach((petal) => {
+					rarity.dependencePetals.forEach((petal) => {
 						if (!petalCountsEachPetal[petal.sid]) {
 							const counts = {} as Record<RaritySID | "none", number>;
 							for (let rarity = toRarityIndex("common"); rarity <= toRarityIndex("unique"); rarity++) {

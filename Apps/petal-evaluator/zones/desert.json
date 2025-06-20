@@ -406,7 +406,7 @@
 					"score": 3.1990813619711203,
 					"damagePerSecondOnOneMOB": 68720.53309695562,
 					"damagePerSecondOnArea": 68720.53309695562,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "clover",
 							"rarity": "ultra"
@@ -418,7 +418,7 @@
 					"score": 3.2913885033382955,
 					"damagePerSecondOnOneMOB": 70703.41356971103,
 					"damagePerSecondOnArea": 70703.41356971103,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "clover",
 							"rarity": "super"
@@ -490,7 +490,7 @@
 					"score": 2.3625000000000003,
 					"damagePerSecondOnOneMOB": 22555.4,
 					"damagePerSecondOnArea": 50749.65,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "third_eye",
 							"rarity": null
@@ -652,7 +652,7 @@
 					"score": 1.4470535274932161,
 					"damagePerSecondOnOneMOB": 31084.639175257606,
 					"damagePerSecondOnArea": 31084.639175257606,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "orb",
 							"rarity": "ultra"
@@ -664,7 +664,7 @@
 					"score": 2.8941070549864323,
 					"damagePerSecondOnOneMOB": 62169.27835051521,
 					"damagePerSecondOnArea": 62169.27835051521,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "orb",
 							"rarity": "super"
@@ -676,7 +676,7 @@
 					"score": 1.2299954753689424,
 					"damagePerSecondOnOneMOB": 26421.94280489204,
 					"damagePerSecondOnArea": 26421.94280489204,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
 							"rarity": "ultra"
@@ -688,7 +688,7 @@
 					"score": 2.4599909507378848,
 					"damagePerSecondOnOneMOB": 52843.88560978408,
 					"damagePerSecondOnArea": 52843.88560978408,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
 							"rarity": "super"
@@ -706,7 +706,7 @@
 					"score": 7.743640897986791,
 					"damagePerSecondOnOneMOB": 166343.7313432869,
 					"damagePerSecondOnArea": 166343.7313432869,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "orb",
 							"rarity": "ultra"
@@ -718,7 +718,7 @@
 					"score": 15.487281795973582,
 					"damagePerSecondOnOneMOB": 332687.4626865738,
 					"damagePerSecondOnArea": 332687.4626865738,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "orb",
 							"rarity": "super"
@@ -730,7 +730,7 @@
 					"score": 6.582094640206783,
 					"damagePerSecondOnOneMOB": 141392.16899782864,
 					"damagePerSecondOnArea": 141392.16899782864,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
 							"rarity": "ultra"
@@ -742,7 +742,7 @@
 					"score": 13.164189280413567,
 					"damagePerSecondOnOneMOB": 282784.3379956573,
 					"damagePerSecondOnArea": 282784.3379956573,
-					"withPetals": [
+					"dependencePetals": [
 						{
 							"sid": "magic_leaf",
 							"rarity": "super"
